@@ -1,10 +1,13 @@
 # Concepts
 
 - Destination directory: `~/`
+
   Destination Stage: `&destination_directory`
 - Source directory: `~/.local/share/chezmoi/`
+
   Source state: `&source directory`
 - Target directory: `~/`
+
   Targe state: `~/` after `chezmoi apply`
 - Working tree `~/.local/share/chezmoi/`
 

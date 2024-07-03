@@ -60,11 +60,15 @@ name = 'eDP-1'
 modeline = 'preferred, 0x0, 1.916667, bitdepth, 10'
 workspace = [ 4, 5, 6 ]
 deckSwitch = 'Lid Switch'
+wallpaper = '/home/proteus/Pictures/wallpaper-3.jpg'
+wallpaperMode = 'contain'
 
 [[PROTEUSLAPTOP.hyprland.monitors]]
 name = 'DP-2'
 modeline = 'preferred, auto-left, 1.333333, bitdepth, 10'
 workspace = [ 1, 2, 3 ]
+wallpaper = '/home/proteus/Pictures/wallpaper-3.jpg'
+wallpaperMode = 'contain'
 
 [[PROTEUSLAPTOP.hyprland.monitors]]
 name = 'DP-3'

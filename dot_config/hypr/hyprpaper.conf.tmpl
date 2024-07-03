@@ -1,0 +1,6 @@
+{{ range $monitor := dig .chezmoi.hostname "hyprland" "monitors" "114514" . }}
+{{- if hasKey $monitor "wallpaper" -}}
+preload = {{ $monitor.wallpaper }}
+wallpaper = {{ $monitor.name }}, {{ printf "%s:%s" $monitor.wallpaperMode $monitor.wallpaper }}
+{{ end }}
+{{- end -}}

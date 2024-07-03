@@ -2,6 +2,11 @@
 color-scheme = 'prefer-dark'
 
 [PROTEUSLAPTOP]
+DPIScale = 1.916667
+keyboardBacklightDevice = 'platform::kbd_backlight'
+mpv.vulkan-device = 'AMD Radeon 780M (RADV GFX1103_R1)'
+rofi.dpi = 96
+rofi.width = "750px"
 waybar.marginTop = 6
 waybar.marginLeftRight = 4
 waybar.windowFontSize = '16px'
@@ -47,5 +52,54 @@ waybar.privacyConfig = '''
     "tooltip": true,
     "tooltip-icon-size": 22
   }
-]
-'''
+]'''
+
+[[PROTEUSLAPTOP.hyprland.monitors]]
+# 3440x1440 on the left-upper
+name = 'eDP-1'
+modeline = 'preferred, 0x0, 1.916667, bitdepth, 10'
+workspace = [ 4, 5, 6 ]
+deckSwitch = 'Lid Switch'
+
+[[PROTEUSLAPTOP.hyprland.monitors]]
+name = 'DP-2'
+modeline = 'preferred, auto-left, 1.333333, bitdepth, 10'
+workspace = [ 1, 2, 3 ]
+
+[[PROTEUSLAPTOP.hyprland.monitors]]
+name = 'DP-3'
+modeline = 'preferred, auto-right, 2, transform, 1, bitdepth, 10'
+workspace = [ 7, 8, 9, 10 ]
+
+[[PROTEUSLAPTOP.pipewire.sources]]
+# Name of pulse device (pactl)
+name = 'alsa-mic-alc287'
+# Description of pulse device (pactl)
+desc = 'Mic ALC287 Analog'
+# Alsa path
+path = 'hw:Generic_1,0'
+
+[[PROTEUSLAPTOP.pipewire.sources]]
+name = 'alsa-mic-dmic'
+desc = 'MIC DMIC HIFI Capture'
+path = 'hw:acp63,0'
+
+[[PROTEUSLAPTOP.pipewire.sinks]]
+name = 'alsa-dmix-alc287'
+desc = 'PCM ALC287 Analog'
+path = 'dmix:Generic_1,0'
+
+[[PROTEUSLAPTOP.pipewire.sinks]]
+name = 'alsa-dmix-hdmi0'
+desc = 'PCM HDMI Port 0'
+path = 'dmix:Generic,3'
+
+[[PROTEUSLAPTOP.pipewire.sinks]]
+name = 'alsa-dmix-hdmi1'
+desc = 'PCM HDMI Port 1'
+path = 'dmix:Generic,7'
+
+[[PROTEUSLAPTOP.pipewire.sinks]]
+name = 'alsa-dmix-hdmi2'
+desc = 'PCM HDMI Port 2'
+path = 'dmix:Generic,8'

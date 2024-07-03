@@ -1,0 +1,34 @@
+# cat /proc/asound/cards
+# cat /proc/asound/pcm
+
+context.objects = [
+    # We do not start with dmix, but with an input device.
+    # Do not forget to add an input device.
+    # On a friend's Laptop, I saw Zoom having a nervous
+    # breakdown and endlessly crying because no input device
+    # was configured! You have been warned.
+{{- range $sourceObject := dig .chezmoi.hostname "pipewire" "sources" "114514" . }}
+    { factory = adapter
+        args = {
+            factory.name           = api.alsa.pcm.source
+            node.name              = "{{ $sourceObject.name }}"
+            node.description       = "{{ $sourceObject.desc }}"
+            media.class            = "Audio/Source"
+            api.alsa.path          = "{{ $sourceObject.path }}"
+        }
+    }
+{{- end }}
+
+    # Okay, now we add sink for dmix PCM
+{{- range $sinkObject := dig .chezmoi.hostname "pipewire" "sinks" "114514" . }}
+    { factory = adapter
+        args = {
+            factory.name           = api.alsa.pcm.sink
+            node.name              = "{{ $sinkObject.name }}"
+            node.description       = "{{ $sinkObject.desc }}"
+            media.class            = "Audio/Sink"
+            api.alsa.path          = "{{ $sinkObject.path }}"
+        }
+    }
+{{- end }}
+]

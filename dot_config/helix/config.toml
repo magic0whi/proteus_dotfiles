@@ -4,8 +4,12 @@ theme = 'gruvbox'
 line-number = 'relative'
 soft-wrap.enable = true
 
-[editor.whitespace]
-render = 'all'
+[editor.whitespace.render]
+space = "none"
+tab = "all"
+nbsp = "all"
+nnbsp = "all"
+newline = "none"
 
 [keys.insert]
 "C-c" = "normal_mode"

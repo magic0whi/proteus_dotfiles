@@ -1,0 +1,215 @@
+# MONITORS
+# See https://wiki.hyprland.org/Configuring/Monitors/
+{{- range $monitor := dig .chezmoi.hostname "hyprland" "monitors" "114514" . }}
+${{ $monitor.name }} = {{ $monitor.modeline }}
+monitor = {{ $monitor.name }}, ${{ $monitor.name }}
+{{- range $workspace := $monitor.workspace }}
+workspace = {{ $workspace }}, monitor:{{ $monitor.name }}
+{{- end }}
+{{ end }}
+# MY PROGRAMS
+$terminal = systemd-run --user --scope alacritty
+$fileManager = systemd-run --user --scope doublecmd
+$menu = systemd-run --user --scope rofi -show combi
+$clipManager = systemd-run --user --scope sh -c 'cliphist list | rofi -dmenu | cliphist decode | wl-copy'
+
+# AUTOSTART
+exec-once = systemctl --user --no-block start hyprland-session.target
+
+# ENVIRONMENT VARIABLES
+env = XCURSOR_SIZE, 24
+env = HYPRCURSOR_SIZE, 24
+env = QT_QPA_PLATFORMTHEME, qt6ct
+env = QT_IM_MODULE, fcitx
+env = QT_IM_MODULES, wayland;fcitx
+env = GDK_DPI_SCALE, {{ dig .chezmoi.hostname "DPIScale" "114514" . }}
+env = QT_ENABLE_HIGHDPI_SCALING, 1
+env = STEAM_FORCE_DESKTOPUI_SCALING, {{ dig .chezmoi.hostname "DPIScale" "114514" . }}
+
+# LOOK AND FEEL
+# https://wiki.hyprland.org/Configuring/Variables/#general
+general {
+    gaps_in = 2
+    gaps_out = 5
+    border_size = 2
+    # See https://wiki.hyprland.org/Configuring/Variables/ for more
+    col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
+    col.inactive_border = rgba(595959aa)
+}
+
+# https://wiki.hyprland.org/configuring/variables/#decoration
+decoration {
+    rounding = 10
+    # https://wiki.hyprland.org/configuring/variables/#blur
+    blur {
+        size = 3
+    }
+}
+
+# https://wiki.hyprland.org/configuring/variables/#animations
+animations {
+    bezier = mybezier, 0.05, 0.9, 0.1, 1.05
+    animation = windows, 1, 7, mybezier
+    animation = windowsOut, 1, 7, default, popin 80%
+    animation = border, 1, 10, default
+    animation = borderangle, 1, 8, default
+    animation = fade, 1, 7, default
+    animation = workspaces, 1, 6, default
+}
+
+# see https://wiki.hyprland.org/configuring/dwindle-layout/ for more
+dwindle {
+    pseudotile = true # master switch for pseudotiling. enabling is bound to mainmod + p in the keybinds section below
+    preserve_split = true # you probably want this
+}
+
+# https://wiki.hyprland.org/configuring/variables/#misc
+misc { 
+    key_press_enables_dpms = true
+    vrr = 1
+}
+
+# https://wiki.hyprland.org/configuring/variables/#gestures
+gestures {
+    workspace_swipe = true
+}
+
+# https://wiki.hyprland.org/Configuring/XWayland/#hidpi-xwayland
+xwayland {
+    # Unscale Xwayland
+    force_zero_scaling = true
+}
+
+# KEYBINDINGNESS
+# See https://wiki.hyprland.org/Configuring/Keywords/
+# See https://wiki.hyprland.org/Configuring/Binds/ for more
+$mainMod = SUPER
+
+bind = $mainMod, E, exec, $fileManager
+bind = $mainMod, Q, exec, $terminal
+bind = $mainMod, W, killactive,
+bind = $mainMod, SPACE, exec, $menu
+bind = $mainMod, V, exec, $clipManager
+bind = $mainMod, F, fullscreen,
+bind = $mainMod SHIFT, F, togglefloating
+bind = $mainMod, T, togglesplit, # dwindle
+bind = $mainMod SHIFT, P, pseudo # dwindle
+# Special workspace (scratchpad)
+bind = $mainMod, S, togglespecialworkspace, magic
+bind = $mainMod SHIFT, S, movetoworkspace, special:magic
+
+# Move focus
+bind = $mainMod, H, movefocus, l
+bind = $mainMod, L, movefocus, r
+bind = $mainMod, K, movefocus, u
+bind = $mainMod, J, movefocus, d
+bind = $mainMod, N, cyclenext,
+bind = $mainMod, P, cyclenext, prev
+
+# Switch workspaces with mainMod + [0-9]
+bind = $mainMod, 1, workspace, 1
+bind = $mainMod, 2, workspace, 2
+bind = $mainMod, 3, workspace, 3
+bind = $mainMod, 4, workspace, 4
+bind = $mainMod, 5, workspace, 5
+bind = $mainMod, 6, workspace, 6
+bind = $mainMod, 7, workspace, 7
+bind = $mainMod, 8, workspace, 8
+bind = $mainMod, 9, workspace, 9
+bind = $mainMod, 0, workspace, 10
+
+# Move active window to a workspace with mainMod + SHIFT + [0-9]
+bind = $mainMod SHIFT, 1, movetoworkspace, 1
+bind = $mainMod SHIFT, 2, movetoworkspace, 2
+bind = $mainMod SHIFT, 3, movetoworkspace, 3
+bind = $mainMod SHIFT, 4, movetoworkspace, 4
+bind = $mainMod SHIFT, 5, movetoworkspace, 5
+bind = $mainMod SHIFT, 6, movetoworkspace, 6
+bind = $mainMod SHIFT, 7, movetoworkspace, 7
+bind = $mainMod SHIFT, 8, movetoworkspace, 8
+bind = $mainMod SHIFT, 9, movetoworkspace, 9
+bind = $mainMod SHIFT, 0, movetoworkspace, 10
+
+# Scroll through existing workspaces with mainMod + scroll
+bind = $mainMod, mouse_down, workspace, e+1
+bind = $mainMod, mouse_up, workspace, e-1
+
+# Move/resize windows 
+bind = $mainMod SHIFT, H, movewindow, l
+bind = $mainMod SHIFT, J, movewindow, d
+bind = $mainMod SHIFT, K, movewindow, u
+bind = $mainMod SHIFT, L, movewindow, r
+binde = $mainMod ALT, H, resizeactive, -5% 0
+binde = $mainMod ALT, L, resizeactive, 5% 0
+binde = $mainMod ALT, J, resizeactive, 0 5%
+binde = $mainMod ALT, K, resizeactive, 0 -5%
+
+# Scroll through existing workspaces with mainMod + scroll
+bind = $mainMod, mouse_down, workspace, e+1
+bind = $mainMod, mouse_up, workspace, e-1
+# LMB/RMB and dragging to move/resize windows
+bindm = $mainMod, mouse:272, movewindow
+bindm = $mainMod, mouse:273, resizewindow
+
+# Turn off screen
+{{- if $kbdDevice := dig .chezmoi.hostname "keyboardBacklightDevice" nil . }}
+bindl = $mainMod, Z, exec, sleep 0.4; hyprctl dispatch dpms off; pidof hyprlock || (brightnessctl -sd {{ $kbdDevice }} set 0; hyprlock; brightnessctl -rd {{ $kbdDevice }})
+{{- else }}
+bindl = $mainMod, Z, exec, sleep 0.4; hyprctl dispatch dpms off; pidof hyprlock
+{{- end }}
+bind = $mainMod, X, exec, systemctl suspend # Suspend
+bind = $mainMod, C, exec, systemctl hibernate # Hibernate
+bind = $mainMod ALT, Q, exit, # Exit Hyprland
+bind = $mainMod ALT, R, exec, systemctl reboot # Reboot
+bind = $mainMod ALT, S, exec, systemctl poweroff # Shutdown
+
+# Brightness
+bindel = , XF86MonBrightnessUp, exec, brightnessctl set +4%
+bindel = , XF86MonBrightnessDown, exec, brightnessctl set 4%-
+# Media
+bindel =, XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindel =, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindl =, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindl =, XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+bindl =, XF86AudioPrev, exec, playerctl --all-players previous
+bindl =, XF86AudioPlay, exec, playerctl --all-players play-pause
+bindl =, XF86AudioNext, exec, playerctl --all-players next
+
+bind = , Print, exec, grim -g "$(slurp -d)" - | wl-copy
+{{ range $monitor := dig .chezmoi.hostname "hyprland" "monitors" "114514" . }}
+{{- if hasKey $monitor "deckSwitch" }}
+# Dock switch for {{ $monitor.name }}
+bindl = , switch:{{ $monitor.deckSwitch }}, exec, hyprlock
+bindl = , switch:on:{{ $monitor.deckSwitch }}, exec, hyprctl keyword monitor "{{ $monitor.name }}, disable"
+bindl= , switch:off:{{ $monitor.deckSwitch }}, exec, hyprctl keyword monitor "{{ $monitor.name }}, ${{ $monitor.name }}"
+{{- end }}
+{{- end }}
+
+# WINDOWS AND WORKSPACES
+# See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
+windowrulev2 = suppressevent maximize, class:.* # You'll probably like this.
+
+windowrulev2 = workspace 2, class:(steam)
+
+windowrulev2 = idleinhibit focus, class:^(firefox)$
+windowrulev2 = float, class:^(firefox)$, title:^(Picture-in-Picture)$
+windowrulev2 = pin, class:^(firefox)$, title:^(Picture-in-Picture)$
+windowrulev2 = size 480 270, class:^(firefox)$, title:^(Picture-in-Picture)$
+windowrulev2 = move 100%-w-5 100%-w-5, class:^(firefox)$, title:^(Picture-in-Picture)$
+
+windowrulev2 = workspace 3, class:^(steam_app_\d+)|(hoi4)$
+#windowrulev2 = immediate, class:^(steam_app_\d+)|(hoi4)$
+windowrulev2 = fullscreen, class:^(steam_app_\d+)|(hoi4)$
+windowrulev2 = rounding 0, class:^(steam_app_\d+)|(hoi4)$
+windowrulev2 = opaque, class:^(steam_app_\d+)|(hoi4)$
+windowrulev2 = noblur, class:^(steam_app_\d+)|(hoi4)$
+windowrulev2 = noborder, class:^(steam_app_\d+)|(hoi4)$
+windowrulev2 = nodim, class:^(steam_app_\d+)|(hoi4)$
+windowrulev2 = noshadow, class:^(steam_app_\d+)|(hoi4)$
+windowrulev2 = noanim, class:^(steam_app_\d+)|(hoi4)$
+
+windowrulev2 = float, class:^(anki)$, title:(HyperTTS: Add Audio \(Collection\))
+windowrulev2 = size 1090 640, class:(anki), title:(HyperTTS: Add Audio \(Collection\))
+
+windowrulev2 = float, class:^(org\.inkscape\.Inkscape)$, title:^(Function Plotter)$
+windowrulev2 = float, class:^(org\.inkscape\.Inkscape)$, title:^(Function Plotter)$

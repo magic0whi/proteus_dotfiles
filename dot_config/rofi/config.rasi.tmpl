@@ -1,5 +1,5 @@
 configuration {
-    dpi: 96;
+    dpi: {{ dig .chezmoi.hostname "rofi" "dpi" "114514" .}};
     modes: "window,drun,ssh,combi";
     combi-modes: "window,drun,ssh";
     show-icons: true;

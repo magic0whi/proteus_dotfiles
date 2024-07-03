@@ -19,9 +19,10 @@ c = number of type selectors
 window#waybar {
   background-color: transparent;
   font-family: Material Design Icons, Roboto, Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: {{ dig .chezmoi.hostname "waybar" "windowFontSize" "11514px" . }};
 }
 
+{{- if eq .chezmoi.hostname "PROTEUSLAPTOP" }}
 /* HiDPI adjustments for DP-3 START */
 window#waybar.DP-3 {
   font-size: 20px;
@@ -31,12 +32,16 @@ window#waybar.DP-3 widget:first-child .module {
   margin-left: 0;
 }
 
+window#waybar.DP-3 widget:last-child .module {
+  margin-right: 0;
+}
 /* HiDPI adjustments for DP-3 END */
+{{- end }}
 
 tooltip {
   background: @gruvbox-bg;
   border: 2px solid @gruvbox-gray;
-  font-size: 16px;
+  font-size: {{ dig .chezmoi.hostname "waybar" "tooltipFontSize" "114514px" . }};
 }
 
 tooltip label {
@@ -44,8 +49,8 @@ tooltip label {
 }
 
 .module {
-  margin-left: 2px;
-  margin-right: 2px;
+  margin-left: {{ dig .chezmoi.hostname "waybar" "moduleMarginLeftRight" "114514px" . }};
+  margin-right: {{ dig .chezmoi.hostname "waybar" "moduleMarginLeftRight" "114514px" . }};
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -78,7 +83,7 @@ tooltip label {
   background-color: @gruvbox-bg;
   border-radius: 8px;
   color: @gruvbox-fg;
-  padding: 0 5px;
+  padding: {{ dig .chezmoi.hostname "waybar" "modulePadding" "0 114514px" . }};
   transition-property: background-color;
   transition-duration: .5s;
 }
@@ -128,7 +133,7 @@ tooltip label {
 }
 
 #keyboard-state>label {
-  padding: 0 5px;
+  padding: {{ dig .chezmoi.hostname "waybar" "modulePadding" "0 114514px" . }};
 }
 
 #keyboard-state>label.locked {
@@ -205,7 +210,7 @@ tooltip label {
 #workspaces button {
   background-color: @gruvbox-bg;
   color: @gruvbox-fg;
-  padding: 0 5px;
+  padding: {{ dig .chezmoi.hostname "waybar" "modulePadding" "0 114514px" . }};
 }
 
 #workspaces button:not(:first-child):not(:last-child) {
@@ -254,7 +259,8 @@ tooltip label {
 
 #privacy {
   /* Privacy is missing class .module */
-  margin: 0 5px;
+  margin-left: {{ dig .chezmoi.hostname "waybar" "moduleMarginLeftRight" "114514px" . }};
+  margin-right: {{ dig .chezmoi.hostname "waybar" "moduleMarginLeftRight" "114514px" . }};
   /* Remove parent box's padding */
   padding: 0;
   background-color: @gruvbox-fg;
@@ -262,7 +268,7 @@ tooltip label {
 }
 
 #privacy-item {
-  padding: 0 5px;
+  padding: {{ dig .chezmoi.hostname "waybar" "modulePadding" "0 114514px" . }};
 }
 
 /* Concatnate modules CPU, Memory, Temperature */
@@ -273,7 +279,8 @@ tooltip label {
 }
 
 #memory {
-  margin: 0;
+  margin-left: 0;
+  margin-right: 0;
   border-radius: 0;
 }
 

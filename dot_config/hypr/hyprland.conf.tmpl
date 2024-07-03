@@ -153,9 +153,9 @@ bindm = $mainMod, mouse:273, resizewindow
 
 # Turn off screen
 {{- if $kbdDevice := dig .chezmoi.hostname "keyboardBacklightDevice" nil . }}
-bindl = $mainMod, Z, exec, sleep 0.4; hyprctl dispatch dpms off; pidof hyprlock || (brightnessctl -sd {{ $kbdDevice }} set 0; hyprlock; brightnessctl -rd {{ $kbdDevice }})
+bindl = $mainMod, Z, exec, sleep 0.4; hyprctl dispatch dpms off; pidof hyprlock || (brightnessctl -sd {{ $kbdDevice }} set 0; loginctl lock-session; sleep 0.1; while [ $(pidof hyprlock) ]; do sleep; done; brightnessctl -rd {{ $kbdDevice }})
 {{- else }}
-bindl = $mainMod, Z, exec, sleep 0.4; hyprctl dispatch dpms off; pidof hyprlock
+bindl = $mainMod, Z, exec, sleep 0.4; hyprctl dispatch dpms off; loginctl lock-session
 {{- end }}
 bind = $mainMod, X, exec, systemctl suspend # Suspend
 bind = $mainMod, C, exec, systemctl hibernate # Hibernate

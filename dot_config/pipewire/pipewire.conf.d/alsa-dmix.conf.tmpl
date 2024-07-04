@@ -18,7 +18,6 @@ context.objects = [
         }
     }
 {{- end }}
-
     # Okay, now we add sink for dmix PCM
 {{- range $sinkObject := dig .chezmoi.hostname "pipewire" "sinks" "114514" . }}
     { factory = adapter

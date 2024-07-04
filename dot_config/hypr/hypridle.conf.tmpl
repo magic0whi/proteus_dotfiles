@@ -1,5 +1,10 @@
 general {
-    lock_cmd = pidof hyprlock || hyprlock       # avoid starting multiple hyprlock instances.
+{{- if $kbdDevice := dig .chezmoi.hostname "keyboardBacklightDevice" nil . }}
+    lock_cmd = pidof hyprlock || (brightnessctl -sd {{ $kbdDevice }} set 0; hyprlock && loginctl unlock-session)
+    unlock_cmd = brightnessctl -rd {{ $kbdDevice }}
+{{- else }}
+    lock_cmd = pidof hyprlock || (hyprlock && loginctl unlock-session)
+{{- end }}
     before_sleep_cmd = loginctl lock-session    # lock before suspend.
     after_sleep_cmd = hyprctl dispatch dpms on  # to avoid having to press a key twice to turn on the display.
 }
@@ -9,15 +14,13 @@ listener {
     on-timeout = brightnessctl -s set 2%         # set monitor backlight to minimum, avoid 0 on OLED monitor.
     on-resume = brightnessctl -r                 # monitor backlight restore.
 }
-
-{{- if $kbdDevice := dig .chezmoi.hostname "keyboardBacklightDevice" nil . }}
+{{ if $kbdDevice := dig .chezmoi.hostname "keyboardBacklightDevice" nil . }}
 listener {
     timeout = 150                                          # 2.5min.
     on-timeout = brightnessctl -sd {{ $kbdDevice }} set 0 # turn off keyboard backlight.
     on-resume = brightnessctl -rd {{ $kbdDevice }}        # turn on keyboard backlight.
 }
-{{- end }}
-
+{{ end }}
 listener {
     timeout = 300                                 # 5min
     on-timeout = loginctl lock-session            # lock screen when timeout has passed

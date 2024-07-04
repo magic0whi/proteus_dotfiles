@@ -6,7 +6,8 @@ monitor = {{ $monitor.name }}, ${{ $monitor.name }}
 {{- range $workspace := $monitor.workspace }}
 workspace = {{ $workspace }}, monitor:{{ $monitor.name }}
 {{- end }}
-{{ end }}
+{{- end }}
+
 # MY PROGRAMS
 $terminal = systemd-run --user --scope alacritty
 $fileManager = systemd-run --user --scope doublecmd
@@ -152,11 +153,7 @@ bindm = $mainMod, mouse:272, movewindow
 bindm = $mainMod, mouse:273, resizewindow
 
 # Turn off screen
-{{- if $kbdDevice := dig .chezmoi.hostname "keyboardBacklightDevice" nil . }}
-bindl = $mainMod, Z, exec, sleep 0.4; hyprctl dispatch dpms off; pidof hyprlock || (brightnessctl -sd {{ $kbdDevice }} set 0; loginctl lock-session; sleep 0.1; while [ $(pidof hyprlock) ]; do sleep; done; brightnessctl -rd {{ $kbdDevice }})
-{{- else }}
 bindl = $mainMod, Z, exec, sleep 0.4; hyprctl dispatch dpms off; loginctl lock-session
-{{- end }}
 bind = $mainMod, X, exec, systemctl suspend # Suspend
 bind = $mainMod, C, exec, systemctl hibernate # Hibernate
 bind = $mainMod ALT, Q, exit, # Exit Hyprland
@@ -177,14 +174,13 @@ bindl =, XF86AudioNext, exec, playerctl --all-players next
 
 bind = , Print, exec, grim -g "$(slurp -d)" - | wl-copy
 {{ range $monitor := dig .chezmoi.hostname "hyprland" "monitors" "114514" . }}
-{{- if hasKey $monitor "deckSwitch" }}
+{{- if hasKey $monitor "dockSwitch" }}
 # Dock switch for {{ $monitor.name }}
-bindl = , switch:{{ $monitor.deckSwitch }}, exec, hyprlock
-bindl = , switch:on:{{ $monitor.deckSwitch }}, exec, hyprctl keyword monitor "{{ $monitor.name }}, disable"
-bindl= , switch:off:{{ $monitor.deckSwitch }}, exec, hyprctl keyword monitor "{{ $monitor.name }}, ${{ $monitor.name }}"
+bindl = , switch:{{ $monitor.dockSwitch }}, exec, loginctl lock-session
+bindl = , switch:on:{{ $monitor.dockSwitch }}, exec, hyprctl keyword monitor "{{ $monitor.name }}, disable"
+bindl= , switch:off:{{ $monitor.dockSwitch }}, exec, hyprctl keyword monitor "{{ $monitor.name }}, ${{ $monitor.name }}"
+{{ end }}
 {{- end }}
-{{- end }}
-
 # WINDOWS AND WORKSPACES
 # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
 windowrulev2 = suppressevent maximize, class:.* # You'll probably like this.

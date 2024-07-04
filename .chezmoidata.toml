@@ -1,18 +1,5 @@
-[GTK4.'org.gnome.desktop.interface']
-color-scheme = 'prefer-dark'
-
-[PROTEUSLAPTOP]
-DPIScale = 1.916667
-keyboardBacklightDevice = 'platform::kbd_backlight'
-mpv.vulkan-device = 'AMD Radeon 780M (RADV GFX1103_R1)'
-rofi.dpi = 96
-rofi.width = "750px"
-waybar.marginTop = 6
-waybar.marginLeftRight = 4
-waybar.windowFontSize = '16px'
-waybar.tooltipFontSize = '16px'
-waybar.moduleMarginLeftRight = '2px'
-waybar.modulePadding = '0 5px'
+[COMMON]
+gtk4.'org.gnome.desktop.interface'.color-scheme = 'prefer-dark'
 waybar.windowRewrite = '''
 "class<ario>": "&#xf0386;", // music-circle
 "class<Alacritty>": "&#xf018d;", // console
@@ -54,12 +41,25 @@ waybar.privacyConfig = '''
   }
 ]'''
 
+[PROTEUSLAPTOP]
+DPIScale = 1.916667
+keyboardBacklightDevice = 'platform::kbd_backlight'
+mpv.vulkan-device = 'AMD Radeon 780M (RADV GFX1103_R1)'
+rofi.dpi = 96
+rofi.width = "750px"
+waybar.marginTop = 6
+waybar.marginLeftRight = 4
+waybar.windowFontSize = '16px'
+waybar.tooltipFontSize = '16px'
+waybar.moduleMarginLeftRight = '2px'
+waybar.modulePadding = '0 5px'
+
 [[PROTEUSLAPTOP.hyprland.monitors]]
 # 3440x1440 on the left-upper
 name = 'eDP-1'
 modeline = 'preferred, 0x0, 1.916667, bitdepth, 10'
 workspace = [ 4, 5, 6 ]
-deckSwitch = 'Lid Switch'
+dockSwitch = 'Lid Switch'
 wallpaper = '/home/proteus/Pictures/wallpaper-3.jpg'
 wallpaperMode = 'contain'
 
@@ -67,8 +67,6 @@ wallpaperMode = 'contain'
 name = 'DP-2'
 modeline = 'preferred, auto-left, 1.333333, bitdepth, 10'
 workspace = [ 1, 2, 3 ]
-wallpaper = '/home/proteus/Pictures/wallpaper-3.jpg'
-wallpaperMode = 'contain'
 
 [[PROTEUSLAPTOP.hyprland.monitors]]
 name = 'DP-3'

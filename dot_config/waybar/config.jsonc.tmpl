@@ -1,9 +1,9 @@
 // -*- mode: jsonc -*-
 [
   {
-    "margin-left": {{ dig .chezmoi.hostname "waybar" "marginLeftRight" 114514 . }},
-    "margin-right": {{ dig .chezmoi.hostname "waybar" "marginLeftRight" 114514 . }},
-    "margin-top": {{ dig .chezmoi.hostname "waybar" "marginTop" "114514" . }},
+    "margin-left": {{ index . .chezmoi.hostname "waybar" "marginLeftRight" }},
+    "margin-right": {{ index . .chezmoi.hostname "waybar" "marginLeftRight" }},
+    "margin-top": {{ index . .chezmoi.hostname "waybar" "marginTop" }},
     "output": [
       "eDP-1",
       "DP-2"

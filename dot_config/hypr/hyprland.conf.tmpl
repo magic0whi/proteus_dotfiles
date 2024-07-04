@@ -1,6 +1,6 @@
 # MONITORS
 # See https://wiki.hyprland.org/Configuring/Monitors/
-{{- range $monitor := dig .chezmoi.hostname "hyprland" "monitors" "114514" . }}
+{{- range $monitor := index . .chezmoi.hostname "hyprland" "monitors" }}
 ${{ $monitor.name }} = {{ $monitor.modeline }}
 monitor = {{ $monitor.name }}, ${{ $monitor.name }}
 {{- range $workspace := $monitor.workspace }}
@@ -23,9 +23,9 @@ env = HYPRCURSOR_SIZE, 24
 env = QT_QPA_PLATFORMTHEME, qt6ct
 env = QT_IM_MODULE, fcitx
 env = QT_IM_MODULES, wayland;fcitx
-env = GDK_DPI_SCALE, {{ dig .chezmoi.hostname "DPIScale" "114514" . }}
+env = GDK_DPI_SCALE, {{ index . .chezmoi.hostname "DPIScale" }}
 env = QT_ENABLE_HIGHDPI_SCALING, 1
-env = STEAM_FORCE_DESKTOPUI_SCALING, {{ dig .chezmoi.hostname "DPIScale" "114514" . }}
+env = STEAM_FORCE_DESKTOPUI_SCALING, {{ index . .chezmoi.hostname "DPIScale" }}
 
 # LOOK AND FEEL
 # https://wiki.hyprland.org/Configuring/Variables/#general
@@ -173,14 +173,15 @@ bindl =, XF86AudioPlay, exec, playerctl --all-players play-pause
 bindl =, XF86AudioNext, exec, playerctl --all-players next
 
 bind = , Print, exec, grim -g "$(slurp -d)" - | wl-copy
-{{ range $monitor := dig .chezmoi.hostname "hyprland" "monitors" "114514" . }}
+{{ range $monitor := index . .chezmoi.hostname "hyprland" "monitors" }}
 {{- if hasKey $monitor "dockSwitch" }}
 # Dock switch for {{ $monitor.name }}
 bindl = , switch:{{ $monitor.dockSwitch }}, exec, loginctl lock-session
 bindl = , switch:on:{{ $monitor.dockSwitch }}, exec, hyprctl keyword monitor "{{ $monitor.name }}, disable"
 bindl= , switch:off:{{ $monitor.dockSwitch }}, exec, hyprctl keyword monitor "{{ $monitor.name }}, ${{ $monitor.name }}"
-{{ end }}
 {{- end }}
+{{- end }}
+
 # WINDOWS AND WORKSPACES
 # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
 windowrulev2 = suppressevent maximize, class:.* # You'll probably like this.

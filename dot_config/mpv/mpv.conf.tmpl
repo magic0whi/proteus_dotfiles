@@ -1,17 +1,16 @@
 vo=gpu-next
 profile=gpu-hq
 gpu-api=vulkan
-vulkan-device='{{ dig .chezmoi.hostname "mpv" "vulkan-device" "114514" . }}'
+vulkan-device='{{ index . .chezmoi.hostname "mpv" "vulkan-device" }}'
 hwdec=vulkan
 #hwdec=vaapi
 
 ao=pipewire
-# 需要独占音频则去掉注释。开启会使得其他程序没声音。
+# Let MPV exclusive audio device, will leave other programs have no sound
 #audio-exclusive=yes
 
-# 如果双声道系统播放多声道影片时有的声道声音没出现，尝试强制设定为双声道 stereo
+# Try to set 'stereo' to force dual-channel if so audio channels don't pplay properly.
 audio-channels=auto
-# 规格化：
 #audio-normalize-downmix=yes
 # 多声道音轨downmix成双声道时，如果觉得背景音过响，角色台词声音小，尝试看看这个：https://github.com/mpv-player/mpv/issues/6563
 

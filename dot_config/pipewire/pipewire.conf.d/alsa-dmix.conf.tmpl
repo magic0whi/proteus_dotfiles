@@ -7,7 +7,7 @@ context.objects = [
     # On a friend's Laptop, I saw Zoom having a nervous
     # breakdown and endlessly crying because no input device
     # was configured! You have been warned.
-{{- range $sourceObject := dig .chezmoi.hostname "pipewire" "sources" "114514" . }}
+{{- range $sourceObject := index . .chezmoi.hostname "pipewire" "sources" }}
     { factory = adapter
         args = {
             factory.name           = api.alsa.pcm.source
@@ -19,7 +19,7 @@ context.objects = [
     }
 {{- end }}
     # Okay, now we add sink for dmix PCM
-{{- range $sinkObject := dig .chezmoi.hostname "pipewire" "sinks" "114514" . }}
+{{- range $sinkObject := index . .chezmoi.hostname "pipewire" "sinks" }}
     { factory = adapter
         args = {
             factory.name           = api.alsa.pcm.sink

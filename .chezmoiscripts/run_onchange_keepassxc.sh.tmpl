@@ -1,0 +1,6 @@
+{{ if $path := index . .chezmoi.hostname "keepassDBPath" -}}
+#!/bin/sh
+set -eufo pipefail
+# ProteusPassDB hash: {{ include $path | sha256sum }}
+gpg -a -r {{ .chezmoi.config.gpg.recipient }} -o {{ printf "%s/encrypted_%s.asc" .chezmoi.sourceDir (osBase $path) }} -e {{ $path }}
+{{- end }}

@@ -42,6 +42,7 @@ waybar.privacyConfig = '''
 ]'''
 
 [PROTEUSLAPTOP]
+keepassDBPath = '/home/proteus/sync-work/3keys/ProteusPassDB.kdbx'
 DPIScale = 1.916667
 keyboardBacklightDevice = 'platform::kbd_backlight'
 mpv.vulkan-device = 'AMD Radeon 780M (RADV GFX1103_R1)'

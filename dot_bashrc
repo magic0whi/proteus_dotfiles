@@ -58,9 +58,6 @@ alias Coimg="Co --type image"
 # MPV
 alias mpv='mpv --player-operation-mode=pseudo-gui'
 
-# Dotfiles
-alias gitdot='/usr/bin/git --git-dir="$HOME/.dotfiles" --work-tree="$HOME"'
-
 cpr() {
   rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 "$@"
 }
@@ -163,7 +160,7 @@ if [ "$SHELL" = "/usr/bin/bash" ]; then
     function _git_prompt() {
         # Git prompt
         source /usr/share/git/completion/git-prompt.sh
-        PS1='${BRed}\u${Color_Off}@${BGreen}\h${Color_Off} ${BBlue}\w${Color_Off} ${BCyan}$(__git_ps1 "(%s)")${Color_Off}${BGreen}\$${Color_Off} '
+        PS1='${BRed}\u${Color_Off}@${BGreen}\h ${BBlue}\w ${BCyan}$(__git_ps1 "(%s)")${BGreen}\$${Color_Off} '
     }
    _git_prompt
 fi

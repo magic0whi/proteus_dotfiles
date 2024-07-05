@@ -3,7 +3,6 @@ profile=gpu-hq
 gpu-api=vulkan
 vulkan-device='{{ index . .chezmoi.hostname "mpv" "vulkan-device" }}'
 hwdec=vulkan
-#hwdec=vaapi
 
 ao=pipewire
 # Let MPV exclusive audio device, will leave other programs have no sound
@@ -45,10 +44,14 @@ tscale=oversample
 
 #log-file="~~desktop/mpv.log"
 
-#icc-profile-auto  # 启用校色
+# Enable color correction
+{{- if index . .chezmoi.hostname "mpv" "iccProfile" }}
 icc-profile=/home/proteus/sync-work/TPLCD_8AAE_AdobeRGB.icm
+# Default: 64x64x64. Startup will slightly slow, increases RAM usage ~500MiB
 icc-3dlut-size=256x256x256
-# 默认64x64x64。会稍微延缓mpv启动, 增加内存占用约500M
+{{- else }}
+icc-profile-auto
+{{- end }}
 
 # 在mpv.conf所在目录下建一个 shaders_cache 空文件夹，以存放编译好的GPU shaders，加速启动。
 gpu-shader-cache-dir="~~/shaders_cache"

@@ -1,5 +1,6 @@
 # MONITORS
 # See https://wiki.hyprland.org/Configuring/Monitors/
+# ls /sys/class/drm/card0-*
 {{- range $monitor := index . .chezmoi.hostname "hyprland" "monitors" }}
 ${{ $monitor.name }} = {{ $monitor.modeline }}
 monitor = {{ $monitor.name }}, ${{ $monitor.name }}
@@ -23,9 +24,9 @@ env = HYPRCURSOR_SIZE, 24
 env = QT_QPA_PLATFORMTHEME, qt6ct
 env = QT_IM_MODULE, fcitx
 env = QT_IM_MODULES, wayland;fcitx
-env = GDK_DPI_SCALE, {{ index . .chezmoi.hostname "DPIScale" }}
+env = GDK_DPI_SCALE, {{ index . .chezmoi.hostname "hyprland" "dpiScale" }}
 env = QT_ENABLE_HIGHDPI_SCALING, 1
-env = STEAM_FORCE_DESKTOPUI_SCALING, {{ index . .chezmoi.hostname "DPIScale" }}
+env = STEAM_FORCE_DESKTOPUI_SCALING, {{ index . .chezmoi.hostname "hyprland" "dpiScale" }}
 
 # LOOK AND FEEL
 # https://wiki.hyprland.org/Configuring/Variables/#general
@@ -210,3 +211,10 @@ windowrulev2 = size 1090 640, class:(anki), title:(HyperTTS: Add Audio \(Collect
 
 windowrulev2 = float, class:^(org\.inkscape\.Inkscape)$, title:^(Function Plotter)$
 windowrulev2 = float, class:^(org\.inkscape\.Inkscape)$, title:^(Function Plotter)$
+
+windowrulev2 = workspace 3 silent, class:^(Waydroid|waydroid\..*)$
+windowrulev2 = opaque, class:^(Waydroid|waydroid\..*)$
+windowrulev2 = noblur, class:^(Waydroid|waydroid\..*)$
+windowrulev2 = nodim, class:^(Waydroid|waydroid\..*)$
+windowrulev2 = noshadow, class:^(Waydroid|waydroid\..*)$
+windowrulev2 = noanim, class:^(Waydroid|waydroid\..*)$

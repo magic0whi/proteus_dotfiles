@@ -1,3 +1,18 @@
+# Initialize
+
+Clone repository:
+```console
+chezmoi cd
+chezmoi init git@github.com:magic0whi/proteus_dotfiles.git
+```
+
+See what would be changed:
+```console
+chezmoi diff
+````
+
+Edit and errors...
+
 # Concepts
 
 - Destination directory: `~/`

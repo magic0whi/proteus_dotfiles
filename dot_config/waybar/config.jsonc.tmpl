@@ -4,10 +4,9 @@
     "margin-left": {{ index . .chezmoi.hostname "waybar" "marginLeftRight" }},
     "margin-right": {{ index . .chezmoi.hostname "waybar" "marginLeftRight" }},
     "margin-top": {{ index . .chezmoi.hostname "waybar" "marginTop" }},
-    "output": [
-      "eDP-1",
-      "DP-2"
-    ],
+{{- if index . .chezmoi.hostname "waybar" "output" }}
+    "output": {{ index . .chezmoi.hostname "waybar" "output" }},
+{{- end }}
     "modules-left": [
       "hyprland/workspaces",
       "hyprland/submap"
@@ -64,8 +63,12 @@
       "format": "{percentage}% <span size='x-large' rise='-3500'>&#xf035b;</span>" // memory
     },
     "temperature": {
-      //"thermal-zone": 0,
-      "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
+{{- if (index . .chezmoi.hostname "waybar" "tempThermalZone" | toString) }}
+      "thermal-zone": {{ index . .chezmoi.hostname "waybar" "tempThermalZone" }},
+{{- end }}
+{{- if index . .chezmoi.hostname "waybar" "tempHwmonPath" }}
+      "hwmon-path": "{{ index . .chezmoi.hostname "waybar" "tempHwmonPath" }}",
+{{- end }}
       "critical-threshold": 80,
       "format-critical": "<span rise='-400'>{temperatureC}&#xb0;C</span> <span size='large' rise='-2000'>&#xf0e01;</span><span size='x-large'>&#x200b;</span>", // thermometer-alert, zero width space
       "format": "<span rise='-400'>{temperatureC}&#xb0;C</span> <span size='large' rise='-2000'>{icon}</span><span size='x-large'>&#x200b;</span>", // zero width space
@@ -139,7 +142,7 @@
       }
     },
     "network": {
-      "interface": "wlp1s0",
+      "interface": "{{ index . .chezmoi.hostname "waybar" "netIO" }}",
       "format-wifi": "{icon}",
       "format-ethernet": "{ipaddr}/{cidr} &#xf0200;", // ethernet
       "format-linked": "<span rise='-400'>{ifname} (no ip) &#xf0318;</span><span size='x-large'>&#x200b;</span>", // lan-connect, zero width space
@@ -182,8 +185,9 @@
     "privacy": {
 {{ .COMMON.waybar.privacyConfig }}
     }
-  },
-  {
+  }
+{{- if eq .chezmoi.hostname "PROTEUSLAPTOP" }}
+  ,{
     "output": "DP-3",
     "modules-left": [
       "hyprland/workspaces",
@@ -231,4 +235,5 @@
 {{ .COMMON.waybar.privacyConfig }}
     }
   }
+{{- end }}
 ]

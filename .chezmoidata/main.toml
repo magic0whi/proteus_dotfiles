@@ -4,7 +4,8 @@ gtk4.'org.gnome.desktop.interface'.color-scheme = 'prefer-dark'
 
 [PROTEUSLAPTOP]
 shellColor = 'BGreen'
-keepass.dbPath = '/home/proteus/sync-work/3keys/ProteusPassDB.kdbx'
+sshKeyPath = '/home/proteus/sync-work/3keys/proteus_ed25519.key'
+keepassDBPath = '/home/proteus/sync-work/3keys/ProteusPassDB.kdbx'
 hyprland.dpiScale = 1.916667
 hyprland.keyboardBacklightDevice = 'platform::kbd_backlight'
 mpv.vulkan-device = 'AMD Radeon 780M (RADV GFX1103_R1)'
@@ -34,11 +35,15 @@ wallpaperMode = 'contain'
 name = 'DP-2'
 modeline = 'preferred, auto-left, 1.333333, bitdepth, 10'
 workspace = [1, 2, 3]
+wallpaper = '/home/proteus/Pictures/wallpaper-3.jpg'
+wallpaperMode = 'contain'
 
 [[PROTEUSLAPTOP.hyprland.monitors]]
 name = 'DP-3'
 modeline = 'preferred, auto-right, 2, transform, 1, bitdepth, 10'
 workspace = [7, 8, 9, 10]
+wallpaper = '/home/proteus/Pictures/wallpaper-3.jpg'
+wallpaperMode = 'contain'
 
 [[PROTEUSLAPTOP.pipewire.sources]]
 # Name of pulse device (pactl)
@@ -80,7 +85,7 @@ hyprland.keyboardBacklightDevice = 'usb-3-11-3-1::kbd_backlight'
 mpv.vulkan-device = 'Intel(R) UHD Graphics (TGL GT1)'
 rofi.dpi = 128
 rofi.width = '1500px'
-sshKeyPath = '/home/sync-work/3keys/proteus_ed25519.key'
+sshKeyPath = '/home/proteus/sync-work/3keys/proteus_ed25519.key'
 waybar.marginTop = 6
 waybar.marginLeftRight = 10
 waybar.moduleMarginLeftRight = '2px'

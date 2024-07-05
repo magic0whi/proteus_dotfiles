@@ -63,7 +63,7 @@
       "format": "{percentage}% <span size='x-large' rise='-3500'>&#xf035b;</span>" // memory
     },
     "temperature": {
-{{- if dig .chezmoi.hostname "waybar" "tempThermalZone" nil . }}
+{{- if ne (dig .chezmoi.hostname "waybar" "tempThermalZone" nil .) nil }}
       "thermal-zone": {{ index . .chezmoi.hostname "waybar" "tempThermalZone" }},
 {{- end }}
 {{- if index . .chezmoi.hostname "waybar" "tempHwmonPath" }}

@@ -1,0 +1,150 @@
+[COMMON]
+gpgRecipient = 'B58240E2EBC371C7F99D0DAAED347D6CF8E43AF9'
+gtk4.'org.gnome.desktop.interface'.color-scheme = 'prefer-dark'
+
+[PROTEUSLAPTOP]
+shellColor = 'BGreen'
+keepass.dbPath = '/home/proteus/sync-work/3keys/ProteusPassDB.kdbx'
+hyprland.dpiScale = 1.916667
+hyprland.keyboardBacklightDevice = 'platform::kbd_backlight'
+mpv.vulkan-device = 'AMD Radeon 780M (RADV GFX1103_R1)'
+mpv.iccProfile = '/home/proteus/sync-work/TPLCD_8AAE_AdobeRGB.icm'
+rofi.dpi = 96
+rofi.width = '750px'
+waybar.marginTop = 6
+waybar.marginLeftRight = 4
+waybar.windowFontSize = '16px'
+waybar.tooltipFontSize = '16px'
+waybar.moduleMarginLeftRight = '2px'
+waybar.modulePadding = '0 5px'
+waybar.output = '["eDP-1", "DP-2"]'
+waybar.netIO = 'wlp1s0'
+waybar.tempHwmonPath = '/sys/class/hwmon/hwmon5/temp1_input'
+
+[[PROTEUSLAPTOP.hyprland.monitors]]
+# 3440x1440 on the left-upper
+name = 'eDP-1'
+modeline = 'preferred, 0x0, 1.916667, bitdepth, 10'
+workspace = [4, 5, 6]
+dockSwitch = 'Lid Switch'
+wallpaper = '/home/proteus/Pictures/wallpaper-3.jpg'
+wallpaperMode = 'contain'
+
+[[PROTEUSLAPTOP.hyprland.monitors]]
+name = 'DP-2'
+modeline = 'preferred, auto-left, 1.333333, bitdepth, 10'
+workspace = [1, 2, 3]
+
+[[PROTEUSLAPTOP.hyprland.monitors]]
+name = 'DP-3'
+modeline = 'preferred, auto-right, 2, transform, 1, bitdepth, 10'
+workspace = [7, 8, 9, 10]
+
+[[PROTEUSLAPTOP.pipewire.sources]]
+# Name of pulse device (pactl)
+name = 'alsa-mic-alc287'
+# Description of pulse device (pactl)
+desc = 'Mic ALC287 Analog'
+# Alsa path
+path = 'hw:Generic_1,0'
+
+[[PROTEUSLAPTOP.pipewire.sources]]
+name = 'alsa-mic-dmic'
+desc = 'MIC DMIC HIFI Capture'
+path = 'hw:acp63,0'
+
+[[PROTEUSLAPTOP.pipewire.sinks]]
+name = 'alsa-dmix-alc287'
+desc = 'PCM ALC287 Analog'
+path = 'dmix:Generic_1,0'
+
+[[PROTEUSLAPTOP.pipewire.sinks]]
+name = 'alsa-dmix-hdmi0'
+desc = 'PCM HDMI Port 0'
+path = 'dmix:Generic,3'
+
+[[PROTEUSLAPTOP.pipewire.sinks]]
+name = 'alsa-dmix-hdmi1'
+desc = 'PCM HDMI Port 1'
+path = 'dmix:Generic,7'
+
+[[PROTEUSLAPTOP.pipewire.sinks]]
+name = 'alsa-dmix-hdmi2'
+desc = 'PCM HDMI Port 2'
+path = 'dmix:Generic,8'
+
+[PROTEUSNOTEBOOK]
+shellColor = 'BYellow'
+hyprland.dpiScale = 1.333333
+hyprland.keyboardBacklightDevice = 'usb-3-11-3-1::kbd_backlight'
+mpv.vulkan-device = 'Intel(R) UHD Graphics (TGL GT1)'
+rofi.dpi = 128
+rofi.width = '1500px'
+sshKeyPath = '/home/sync-work/3keys/proteus_ed25519.key'
+waybar.marginTop = 6
+waybar.marginLeftRight = 10
+waybar.moduleMarginLeftRight = '2px'
+waybar.modulePadding = '0 5px'
+waybar.tooltipFontSize = '20px'
+waybar.windowFontSize = '20px'
+waybar.netIO = 'wlo1'
+waybar.tempThermalZone = 0
+
+[[PROTEUSNOTEBOOK.hyprland.monitors]]
+name = 'eDP-1'
+modeline = 'preferred, 0x0, 1.333333, bitdepth, 10'
+workspace = [1, 2, 3, 4, 5, 6, 7, 8, 9 , 10]
+dockSwitch = 'Lid Switch'
+
+[[PROTEUSNOTEBOOK.pipewire.sources]]
+# Name of pulse device (pactl)
+name = 'alsa-mic-alc274'
+# Description of pulse device (pactl)
+desc = 'Mic ALC274 Analog'
+# Alsa path
+path = 'hw:PCH,0'
+
+[[PROTEUSNOTEBOOK.pipewire.sinks]]
+name = 'alsa-dmix-alc274'
+desc = 'PCM ALC274 Analog'
+path = 'dmix:PCH,0'
+
+[[PROTEUSNOTEBOOK.pipewire.sinks]]
+name = 'alsa-dmix-hdmi0'
+desc = 'PCM ALC274 HDMI Port 0'
+path = 'dmix:PCH,3'
+
+[[PROTEUSNOTEBOOK.pipewire.sinks]]
+name = 'alsa-dmix-hdmi1'
+desc = 'PCM ALC274 HDMI Port 1'
+path = 'dmix:PCH,7'
+
+[[PROTEUSNOTEBOOK.pipewire.sinks]]
+name = 'alsa-dmix-hdmi2'
+desc = 'PCM ALC274 HDMI Port 2'
+path = 'dmix:PCH,8'
+
+[[PROTEUSNOTEBOOK.pipewire.sinks]]
+name = 'alsa-dmix-hdmi3'
+desc = 'PCM ALC274 HDMI Port 3'
+path = 'dmix:PCH,9'
+
+[[PROTEUSNOTEBOOK.pipewire.sinks]]
+name = 'alsa-dmix-nvhdmi0'
+desc = 'PCM NVidia HDMI Port 0'
+path = 'dmix:NVidia,3'
+
+[[PROTEUSNOTEBOOK.pipewire.sinks]]
+name = 'alsa-dmix-nvhdmi1'
+desc = 'PCM NVidia HDMI Port 1'
+path = 'dmix:NVidia,7'
+
+[[PROTEUSNOTEBOOK.pipewire.sinks]]
+name = 'alsa-dmix-nvhdmi2'
+desc = 'PCM NVidia HDMI Port 2'
+path = 'dmix:NVidia,8'
+
+[[PROTEUSNOTEBOOK.pipewire.sinks]]
+name = 'alsa-dmix-nvhdmi3'
+desc = 'PCM NVidia HDMI Port 3'
+path = 'dmix:NVidia,9'

@@ -31,7 +31,7 @@
     ],
     // modules configuration
     "hyprland/workspaces": {
-      "format": "<span rise='-1000'>{name} {windows}</span><span size='x-large'>&#x200b;</span>", // zero width space
+      "format": "<span rise='-1000'>{name} {windows}</span><span size='{{ index . .chezmoi.hostname "waybar" "zeroWidthSpaceSize" }}'>&#x200b;</span>", // zero width space
       "show-special": true,
       "special-visible-only": true,
       "window-rewrite": {
@@ -50,8 +50,8 @@
       "spacing": 10
     },
     "clock": {
-      "format": "<span rise='-400'>{:%H:%M:%S}</span><span size='x-large'>&#x200b;</span>", // zero width space
-      "format-alt": "<span rise='-400'>{:%m-%d-%y}</span><span size='x-large'>&#x200b;</span>", // zero width space
+      "format": "<span rise='-400'>{:%H:%M:%S}</span><span size='{{ index . .chezmoi.hostname "waybar" "zeroWidthSpaceSize" }}'>&#x200b;</span>", // zero width space
+      "format-alt": "<span rise='-400'>{:%m-%d-%y}</span><span size='{{ index . .chezmoi.hostname "waybar" "zeroWidthSpaceSize" }}'>&#x200b;</span>", // zero width space
       "interval": 1,
       "tooltip-format": "<big>{:%y %b}</big>\n<tt><small>{calendar}</small></tt>"
     },
@@ -70,8 +70,8 @@
       "hwmon-path": "{{ index . .chezmoi.hostname "waybar" "tempHwmonPath" }}",
 {{- end }}
       "critical-threshold": 80,
-      "format-critical": "<span rise='-400'>{temperatureC}&#xb0;C</span> <span size='large' rise='-2000'>&#xf0e01;</span><span size='x-large'>&#x200b;</span>", // thermometer-alert, zero width space
-      "format": "<span rise='-400'>{temperatureC}&#xb0;C</span> <span size='large' rise='-2000'>{icon}</span><span size='x-large'>&#x200b;</span>", // zero width space
+      "format-critical": "<span rise='-400'>{temperatureC}&#xb0;C</span> <span size='large' rise='-2000'>&#xf0e01;</span><span size='{{ index . .chezmoi.hostname "waybar" "zeroWidthSpaceSize" }}'>&#x200b;</span>", // thermometer-alert, zero width space
+      "format": "<span rise='-400'>{temperatureC}&#xb0;C</span> <span size='large' rise='-2000'>{icon}</span><span size='{{ index . .chezmoi.hostname "waybar" "zeroWidthSpaceSize" }}'>&#x200b;</span>", // zero width space
       "format-icons": [
         "&#xf10c3;", // thermometer-low
         "&#xf050f;", // thermometer
@@ -84,7 +84,7 @@
       "on-scroll-up": "brightnessctl set +4%",
       "on-scroll-down": "brightnessctl set 4%-",
       //"smooth-scrolling-threshold": 3,
-      "format": "<span rise='-400'>{percent}%</span> <span size='large' rise='-2000'>{icon}</span><span size='x-large'>&#x200b;</span>", // zero width space
+      "format": "<span rise='-400'>{percent}%</span> <span size='large' rise='-2000'>{icon}</span><span size='{{ index . .chezmoi.hostname "waybar" "zeroWidthSpaceSize" }}'>&#x200b;</span>", // zero width space
       "format-icons": [
         "&#xf0f64;", // moon-new
         "&#xf0f67;", // moon-waxing-crescent
@@ -109,11 +109,11 @@
         "warning": 30,
         "critical": 15
       },
-      "format": "<span rise='-400'>{capacity}% {icon}</span><span size='x-large'>&#x200b;</span>", // zero width space
+      "format": "<span rise='-400'>{capacity}% {icon}</span><span size='{{ index . .chezmoi.hostname "waybar" "zeroWidthSpaceSize" }}'>&#x200b;</span>", // zero width space
       "format-full": "{capacity}% {icon}",
-      "format-charging": "<span rise='-400'>{capacity}% &#xf0084;</span><span size='x-large'>&#x200b;</span>", // battery-charging, zero width space
-      "format-plugged": "<span rise='-400'>{capacity}% &#xf1c3b;</span><span size='x-large'>&#x200b;</span>", // power-plug-battery
-      "format-alt": "<span rise='-400'>{time} {power}W {icon}</span><span size='x-large'>&#x200b;</span>", // zero width space
+      "format-charging": "<span rise='-400'>{capacity}% &#xf0084;</span><span size='{{ index . .chezmoi.hostname "waybar" "zeroWidthSpaceSize" }}'>&#x200b;</span>", // battery-charging, zero width space
+      "format-plugged": "<span rise='-400'>{capacity}% &#xf1c3b;</span><span size='{{ index . .chezmoi.hostname "waybar" "zeroWidthSpaceSize" }}'>&#x200b;</span>", // power-plug-battery
+      "format-alt": "<span rise='-400'>{time} {power}W {icon}</span><span size='{{ index . .chezmoi.hostname "waybar" "zeroWidthSpaceSize" }}'>&#x200b;</span>", // zero width space
       // "format-good": "", // an empty format will hide the module
       // "format-full": "",
       "format-icons": [
@@ -145,9 +145,9 @@
       "interface": "{{ index . .chezmoi.hostname "waybar" "netIO" }}",
       "format-wifi": "{icon}",
       "format-ethernet": "{ipaddr}/{cidr} &#xf0200;", // ethernet
-      "format-linked": "<span rise='-400'>{ifname} (no ip) &#xf0318;</span><span size='x-large'>&#x200b;</span>", // lan-connect, zero width space
+      "format-linked": "<span rise='-400'>{ifname} (no ip) &#xf0318;</span><span size='{{ index . .chezmoi.hostname "waybar" "zeroWidthSpaceSize" }}'>&#x200b;</span>", // lan-connect, zero width space
       "format-disconnected": "disconnected &#xf0319;", // lan-disconnect
-      "format-alt": "<span rise='-400'>{ifname}: {ipaddr}/{cidr}</span><span size='x-large'>&#x200b;</span>", // zero width space
+      "format-alt": "<span rise='-400'>{ifname}: {ipaddr}/{cidr}</span><span size='{{ index . .chezmoi.hostname "waybar" "zeroWidthSpaceSize" }}'>&#x200b;</span>", // zero width space
       "tooltip-format": "{ifname} via {gwaddr} &#xf11e2;", // router
       "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ifname} via {gwaddr} &#xf11e2;",
       "format-icons": [
@@ -160,10 +160,10 @@
     },
     "pulseaudio": {
       // "scroll-step": 1, // %, can be a float
-      "format": "<span rise='-400'>{volume}% {icon} {format_source}</span><span size='x-large'>&#x200b;</span>", // zero width space
-      "format-muted": "<span rise='-400'>&#xf0581; {format_source}</span><span size='x-large'>&#x200b;</span>", // volume-off, zero width space
-      "format-bluetooth": "<span rise='-400'>{volume}% {icon}<span rise='-1250'>&#xf00af;</span> {format_source}</span><span size='x-large'>&#x200b;</span>", // bluetooth, zero width space
-      "format-bluetooth-muted": "<span rise='-400'><span rise='-1500'>&#xf0581;</span>{icon}<span rise='-1250'>&#xf00af;</span> {format_source}</span><span size='x-large'>&#x200b;</span>", // volume-off, bluetooth, zero width space
+      "format": "<span rise='-400'>{volume}% {icon} {format_source}</span><span size='{{ index . .chezmoi.hostname "waybar" "zeroWidthSpaceSize" }}'>&#x200b;</span>", // zero width space
+      "format-muted": "<span rise='-400'>&#xf0581; {format_source}</span><span size='{{ index . .chezmoi.hostname "waybar" "zeroWidthSpaceSize" }}'>&#x200b;</span>", // volume-off, zero width space
+      "format-bluetooth": "<span rise='-400'>{volume}% {icon}<span rise='-1250'>&#xf00af;</span> {format_source}</span><span size='{{ index . .chezmoi.hostname "waybar" "zeroWidthSpaceSize" }}'>&#x200b;</span>", // bluetooth, zero width space
+      "format-bluetooth-muted": "<span rise='-400'><span rise='-1500'>&#xf0581;</span>{icon}<span rise='-1250'>&#xf00af;</span> {format_source}</span><span size='{{ index . .chezmoi.hostname "waybar" "zeroWidthSpaceSize" }}'>&#x200b;</span>", // volume-off, bluetooth, zero width space
       "format-source": "{volume}% <span rise='-1500'>&#xf036c;</span>", // microphone
       "format-source-muted": "<span rise='-1500'>&#xf036d;</span>", // microphone-off
       "format-icons": {
@@ -198,7 +198,7 @@
     ],
     "position": "bottom",
     "hyprland/workspaces": {
-      "format": "<span rise='-1000'>{name} {windows}</span><span size='x-large'>&#x200b;</span>", // zero width space
+      "format": "<span rise='-1000'>{name} {windows}</span><span size='{{ index . .chezmoi.hostname "waybar" "zeroWidthSpaceSize" }}'>&#x200b;</span>", // zero width space
       "show-special": true,
       "special-visible-only": true,
       "window-rewrite": {
@@ -207,9 +207,9 @@
     },
     "mpd": {
       "title-len": 10,
-      "format": "<span rise='-400'>{stateIcon}{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) &#xf075a;</span><span size='x-large'>&#x200b;</span>", // music, zero width space
-      "format-disconnected": "<span rise='-400'>Disconnected &#xf0319;</span><span size='x-large'>&#x200b;</span>", // lan-disconnect, zero width space
-      "format-stopped": "<span rise='-400'>{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped &#xf075b;</span><span size='x-large'>&#x200b;</span>", // music-off, zero width space
+      "format": "<span rise='-400'>{stateIcon}{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) &#xf075a;</span><span size='{{ index . .chezmoi.hostname "waybar" "zeroWidthSpaceSize" }}'>&#x200b;</span>", // music, zero width space
+      "format-disconnected": "<span rise='-400'>Disconnected &#xf0319;</span><span size='{{ index . .chezmoi.hostname "waybar" "zeroWidthSpaceSize" }}'>&#x200b;</span>", // lan-disconnect, zero width space
+      "format-stopped": "<span rise='-400'>{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped &#xf075b;</span><span size='{{ index . .chezmoi.hostname "waybar" "zeroWidthSpaceSize" }}'>&#x200b;</span>", // music-off, zero width space
       "interval": 10,
       "consume-icons": {
         "on": "&#xf0190;" // content-cut

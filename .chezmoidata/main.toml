@@ -21,6 +21,7 @@ waybar.modulePadding = '0 5px'
 waybar.output = '["eDP-1", "DP-2"]'
 waybar.netIO = 'wlp1s0'
 waybar.tempHwmonPath = '/sys/class/hwmon/hwmon5/temp1_input'
+waybar.zeroWidthSpaceSize = 'x-large'
 
 [[PROTEUSLAPTOP.hyprland.monitors]]
 # 3440x1440 on the left-upper
@@ -94,6 +95,7 @@ waybar.tooltipFontSize = '20px'
 waybar.windowFontSize = '20px'
 waybar.netIO = 'wlo1'
 waybar.tempThermalZone = 0
+waybar.zeroWidthSpaceSize = 'medium'
 
 [[PROTEUSNOTEBOOK.hyprland.monitors]]
 name = 'eDP-1'

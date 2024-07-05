@@ -11,7 +11,7 @@ See what would be changed:
 chezmoi diff
 ````
 
-Edit and errors...
+Edit and fix errors...
 
 # Concepts
 

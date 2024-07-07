@@ -4,4 +4,4 @@ set -eufo pipefail
 if [ "$(gsettings get {{ printf "%s %s" $path $key }})" != "{{ toString $value}}" ]; then
     gsettings set {{ printf "%s %s \"%s\"" $path $key (toString $value) }}
 fi
-{{- end }}{{ end }}
+{{- end }}{{ end -}}

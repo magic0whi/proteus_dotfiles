@@ -1,4 +1,4 @@
-{{- if lookPath "hyprpaper" }}
+{{ if lookPath "hyprpaper" -}}
 [Unit]
 Description=a blazing fast wayland wallpaper utility with IPC controls
 PartOf=graphical-session.target
@@ -13,4 +13,4 @@ Slice=background.slice
 
 [Install]
 WantedBy=graphical-session.target
-{{- end }}
+{{- end -}}

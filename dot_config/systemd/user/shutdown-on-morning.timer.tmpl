@@ -1,0 +1,11 @@
+{{ if eq .chezmoi.hostname "PROTEUSNOTEBOOK" -}}
+[Unit]
+Description=Automatic shutdown on 6:05 a.m.
+
+[Timer]
+Unit=shutdown-on-morning.service
+OnCalendar=*-*-* 06:05:00
+
+[Install]
+WantedBy=timers.target
+{{- end -}}

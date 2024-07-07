@@ -1,7 +1,20 @@
+{{ if lookPath "hyprctl" -}}
 #!/bin/sh
 set -eufo pipefail
-{{ range $path, $subMap := .COMMON.gtk4 }}{{ range $key, $value := $subMap -}}
+
+# dconf settings
+{{ range $path, $subMap := .COMMON.GTK4 }}{{ range $key, $value := $subMap -}}
 if [ "$(gsettings get {{ printf "%s %s" $path $key }})" != "{{ toString $value}}" ]; then
-    gsettings set {{ printf "%s %s \"%s\"" $path $key (toString $value) }}
+  gsettings set {{ printf "%s %s \"%s\"" $path $key (toString $value) }}
 fi
-{{- end }}{{ end -}}
+{{- end }}{{ end }}
+
+{{- if lookPath "imv" }}
+# Set default programs for xdg-open
+{{- range $mimeType, $program := .COMMON.defaults }}
+if [ "$(xdg-mime query default '{{ $mimeType }}')" != "{{ $program }}" ]; then
+  xdg-mime default {{ $program }} {{ $mimeType }}
+fi
+{{- end }}
+{{- end }}
+{{- end -}}

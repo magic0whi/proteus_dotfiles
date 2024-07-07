@@ -1,6 +1,12 @@
 [COMMON]
 gpgRecipient = 'B58240E2EBC371C7F99D0DAAED347D6CF8E43AF9'
-gtk4.'org.gnome.desktop.interface'.color-scheme = 'prefer-dark'
+
+[COMMON.GTK4]
+'org.gnome.desktop.interface'.color-scheme = 'prefer-dark'
+
+[COMMON.defaults]
+'image/png' = 'imv.desktop'
+'image/jpeg' = 'imv.desktop'
 
 [PROTEUSLAPTOP]
 shellColor = 'BGreen'

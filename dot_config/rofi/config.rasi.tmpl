@@ -1,3 +1,4 @@
+{{ if lookPath "rofi" -}}
 configuration {
     dpi: {{ index . .chezmoi.hostname "rofi" "dpi" }};
     modes: "window,drun,ssh,combi";
@@ -5,3 +6,4 @@ configuration {
     show-icons: true;
 }
 @theme "/home/proteus/.config/rofi/themes/rounded-blue-dark.rasi"
+{{- end -}}

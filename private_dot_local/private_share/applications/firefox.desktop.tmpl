@@ -1,3 +1,4 @@
+{{ if lookPath "firefox" -}}
 [Desktop Entry]
 Version=1.0
 Name=Firefox Web Browser
@@ -384,3 +385,4 @@ Name[de]=Profilverwaltung öffnen
 Name[es]=Abrir el Gestor de Perfiles
 Name[fr]=Ouvrir le gestionnaire de profils
 Exec=/usr/lib/firefox/firefox --ProfileManager
+{{- end -}}

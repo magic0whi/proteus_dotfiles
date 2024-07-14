@@ -1,3 +1,4 @@
+{{ if lookPath "alacritty" -}}
 {{ if eq .chezmoi.hostname "PROTEUSLAPTOP" -}}
 [font]
 size = 10.0
@@ -5,3 +6,4 @@ size = 10.0
 {{ end -}}
 [window]
 opacity = 0.8
+{{- end -}}

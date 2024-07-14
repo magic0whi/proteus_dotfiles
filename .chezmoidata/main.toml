@@ -161,3 +161,6 @@ path = 'dmix:NVidia,8'
 name = 'alsa-dmix-nvhdmi3'
 desc = 'PCM NVidia HDMI Port 3'
 path = 'dmix:NVidia,9'
+
+[PROTEUSDESKTOP]
+shellColor = 'BBlue'

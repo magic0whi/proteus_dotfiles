@@ -1,3 +1,4 @@
+{{ if lookPath "mpv" -}}
 vo=gpu-next
 profile=gpu-hq
 gpu-api=vulkan
@@ -169,4 +170,5 @@ profile-desc=cond:((p["video-params/w"]>1920 or p["video-params/h"]>1080) and p[
 fbo-format=auto
 #vd-lavc-threads=16
 # 4K HEVC HDR 60fps软解压力很大，默认vd-lavc-threads=0自动识别逻辑核数，分配核数+1个线程，但往往不够，不能将CPU性能压榨到极限，强行分配更多线程数以提高软解性能。
-# 或者直接开硬解，如果显卡支持的话
+# Or use hardware decode if GPU supports the format
+{{- end -}}

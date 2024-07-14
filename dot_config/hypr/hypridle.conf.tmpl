@@ -1,3 +1,4 @@
+{{ if lookPath "hypridle" -}}
 general {
 {{- if $kbdDevice := index . .chezmoi.hostname "hyprland" "keyboardBacklightDevice" }}
     lock_cmd = pidof hyprlock || (brightnessctl -sd {{ $kbdDevice }} set 0; hyprlock && loginctl unlock-session)
@@ -36,3 +37,4 @@ listener {
 #    timeout = 1800                                # 30min
 #    on-timeout = systemctl suspend                # suspend pc
 #}
+{{- end -}}

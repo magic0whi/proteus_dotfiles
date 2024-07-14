@@ -11,6 +11,7 @@ waybar.windowRewrite = '''
 "class<firefox>": "&#xf0239;", // firefox
 "class<firefox> title<.*(bilibili|YouTube).*>": "&#xf07f4;", // television-classic
 "class<hyprland-share-picker>": "&#xf0496;", // share
+"class<Minecraft|modrinth-app>": "&#xf0373;", // minecraft
 "class<mpv>": "&#xf040c;", // play-circle
 "class<org.fcitx.fcitx5-config-qt>": "&#xf09f9;", // keyboard-settings
 "class<org.inkscape.Inkscape>": "&#xf02f5;", // image-filter-hdr

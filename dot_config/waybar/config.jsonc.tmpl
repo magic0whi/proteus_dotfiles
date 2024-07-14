@@ -34,9 +34,11 @@
       "format": "<span rise='-1000'>{name} {windows}</span><span size='{{ index . .chezmoi.hostname "waybar" "zeroWidthSpaceSize" }}'>&#x200b;</span>", // zero width space
       "show-special": true,
       "special-visible-only": true,
+/*
       "window-rewrite": {
 {{ .COMMON.waybar.windowRewrite }}
       }
+*/
     },
     "idle_inhibitor": {
       "format": "{icon}",
@@ -188,7 +190,7 @@
   }
 {{- if eq .chezmoi.hostname "PROTEUSLAPTOP" }}
   ,{
-    "output": "DP-3",
+    "output": "DP-2",
     "modules-left": [
       "hyprland/workspaces",
       "mpd"
@@ -201,9 +203,11 @@
       "format": "<span rise='-1000'>{name} {windows}</span><span size='{{ index . .chezmoi.hostname "waybar" "zeroWidthSpaceSize" }}'>&#x200b;</span>", // zero width space
       "show-special": true,
       "special-visible-only": true,
+/*
       "window-rewrite": {
 {{ .COMMON.waybar.windowRewrite }}
       }
+*/
     },
     "mpd": {
       "title-len": 10,

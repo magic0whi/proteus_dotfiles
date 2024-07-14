@@ -164,3 +164,4 @@ path = 'dmix:NVidia,9'
 
 [PROTEUSDESKTOP]
 shellColor = 'BBlue'
+sshKeyPath = '/mnt/storage3/sync-work/3keys/proteus_ed25519.key'

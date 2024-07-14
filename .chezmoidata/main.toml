@@ -27,7 +27,6 @@ waybar.modulePadding = '0 5px'
 waybar.output = '["eDP-1", "DP-3"]'
 waybar.netIO = 'wlp1s0'
 waybar.tempHwmonPath = '/sys/class/hwmon/hwmon5/temp1_input'
-waybar.zeroWidthSpaceSize = 'large'
 
 [[PROTEUSLAPTOP.hyprland.monitors]]
 # 3440x1440 on the left-upper
@@ -96,12 +95,11 @@ sshKeyPath = '/home/proteus/sync-work/3keys/proteus_ed25519.key'
 waybar.marginTop = 6
 waybar.marginLeftRight = 10
 waybar.moduleMarginLeftRight = '2px'
-waybar.modulePadding = '0 5px'
+waybar.modulePadding = '4px 5px 0'
 waybar.tooltipFontSize = '20px'
 waybar.windowFontSize = '20px'
 waybar.netIO = 'wlo1'
 waybar.tempThermalZone = 0
-waybar.zeroWidthSpaceSize = 'medium'
 
 [[PROTEUSNOTEBOOK.hyprland.monitors]]
 name = 'eDP-1'

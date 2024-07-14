@@ -1,5 +1,7 @@
+{{ if lookPath "wireplumber" -}}
 wireplumber.profiles = {
   main = {
     monitor.alsa = disabled
   }
 }
+{{- end -}}

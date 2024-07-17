@@ -12,7 +12,7 @@ workspace = {{ $workspace }}, monitor:{{ $monitor.name }}
 
 # MY PROGRAMS
 $terminal = systemd-run --user --scope alacritty
-$fileManager = systemd-run --user --scope doublecmd
+$fileManager = systemd-run --user --scope nautilus
 $menu = systemd-run --user --scope rofi -show combi
 $clipManager = systemd-run --user --scope sh -c 'cliphist list | rofi -dmenu | cliphist decode | wl-copy'
 
@@ -156,7 +156,7 @@ bindm = $mainMod, mouse:273, resizewindow
 
 # Turn off screen
 bindl = $mainMod, Z, exec, sleep 0.4; hyprctl dispatch dpms off; loginctl lock-session
-bind = $mainMod, X, exec, systemctl suspend # Suspend
+bindl = $mainMod, X, exec, systemctl suspend # Suspend
 bind = $mainMod, C, exec, systemctl hibernate # Hibernate
 bind = $mainMod ALT, Q, exit, # Exit Hyprland
 bind = $mainMod ALT, R, exec, systemctl reboot # Reboot

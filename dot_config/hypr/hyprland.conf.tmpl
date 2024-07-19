@@ -179,7 +179,7 @@ bind = , Print, exec, grim -g "$(slurp -d)" - | wl-copy
 {{- if hasKey $monitor "dockSwitch" }}
 # Dock switch for {{ $monitor.name }}
 bindl = , switch:{{ $monitor.dockSwitch }}, exec, loginctl lock-session
-bindl = , switch:on:{{ $monitor.dockSwitch }}, exec, hyprctl keyword monitor "{{ $monitor.name }}, disable"
+bindl = , switch:on:{{ $monitor.dockSwitch }}, exec, [ $(hyprctl monitors -j | jq '.[].name' | wc -w) -ne 1 ] && hyprctl keyword monitor "{{ $monitor.name }}, disable"
 bindl= , switch:off:{{ $monitor.dockSwitch }}, exec, hyprctl keyword monitor "{{ $monitor.name }}, ${{ $monitor.name }}"
 {{- end }}
 {{- end }}

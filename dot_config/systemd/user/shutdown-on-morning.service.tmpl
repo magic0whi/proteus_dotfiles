@@ -1,7 +1,0 @@
-{{ if eq .chezmoi.hostname "PROTEUSLAPTOP" "PROTEUSNOTEBOOK" -}}
-[Unit]
-Description=Shutdown system
-
-[Service]
-ExecStart=/usr/bin/systemctl poweroff
-{{- end -}}

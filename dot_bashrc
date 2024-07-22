@@ -172,5 +172,3 @@ if type rg &> /dev/null; then
     export FZF_DEFAULT_COMMAND='rg --files'
     export FZF_DEFAULT_OPTS='-m'
 fi
-
-[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1 && source /opt/miniconda3/etc/profile.d/conda.sh

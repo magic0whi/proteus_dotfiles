@@ -9,7 +9,7 @@ Host *
     # Increase the valid time of a connection
     ControlPersist 30m
 {{- if index . .chezmoi.hostname "sshKeyPath" }}
-Host github.com
+Host github.com hf.co
     User git
     IdentityFile {{ index . .chezmoi.hostname "sshKeyPath" }}
 

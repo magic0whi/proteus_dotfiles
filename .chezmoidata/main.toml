@@ -5,8 +5,9 @@ gpgRecipient = 'B58240E2EBC371C7F99D0DAAED347D6CF8E43AF9'
 'org.gnome.desktop.interface'.color-scheme = 'prefer-dark'
 
 [COMMON.defaults]
-'image/png' = 'imv.desktop'
-'image/jpeg' = 'imv.desktop'
+'inode/directory' = 'org.gnome.Nautilus.desktop'
+'image/png' = 'imv-dir.desktop'
+'image/jpeg' = 'imv-dir.desktop'
 
 [PROTEUSLAPTOP]
 shellColor = 'BGreen'

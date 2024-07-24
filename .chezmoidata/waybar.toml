@@ -2,14 +2,12 @@
 waybar.windowRewrite = '''
 "class<ario>": "&#xf0386;", // music-circle
 "class<Alacritty>": "&#xf018d;", // console
-"class<Alacritty> title<.*helix.*>": "&#xf0684;", // dna
 "class<Anki>": "&#xf0638;", // cards
 "class<Bitwarden>": "&#xf0bc4;", // shield-key
 "class<blender>": "&#xf00ab;", // blender-software
 "class<com.obsproject.Studio>": "&#xf0210;", // fan
-"class<doublecmd>": "&#xf024b;", // folder
+"class<org.gnome.Nautilus>": "&#xf024b;", // folder
 "class<firefox>": "&#xf0239;", // firefox
-"class<firefox> title<.*(bilibili|YouTube).*>": "&#xf07f4;", // television-classic
 "class<hyprland-share-picker>": "&#xf0496;", // share
 "class<Minecraft|modrinth-app>": "&#xf0373;", // minecraft
 "class<mpv>": "&#xf040c;", // play-circle

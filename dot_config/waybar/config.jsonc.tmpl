@@ -32,15 +32,12 @@
     ],
     // modules configuration
     "hyprland/workspaces": {
-      "format": "{name}",
-      //"format": "{name} {windows}",
+      "format": "{name} {windows}",
       "show-special": true,
-      "special-visible-only": true
-/*
-      ,"window-rewrite": {
+      "special-visible-only": true,
+      "window-rewrite": {
 {{ .COMMON.waybar.windowRewrite }}
       }
-*/
     },
     "idle_inhibitor": {
       "format": "{icon}",
@@ -192,7 +189,11 @@
   }
 {{- if eq .chezmoi.hostname "PROTEUSLAPTOP" }}
   ,{
-    "output": "DP-3",
+{{- range $monitor := index . .chezmoi.hostname "hyprland" "monitors" }}
+{{- if contains "auto-right" $monitor.modeline }}
+    "output": "{{ $monitor.name }}",
+{{- end }}
+{{- end }}
     "modules-left": [
       "hyprland/workspaces",
       "mpd"
@@ -204,11 +205,9 @@
       "format": "{name} {windows}",
       "show-special": true,
       "special-visible-only": true,
-/*
-      ,"window-rewrite": {
+      "window-rewrite": {
 {{ .COMMON.waybar.windowRewrite }}
       }
-*/
     },
     "mpd": {
       "title-len": 10,

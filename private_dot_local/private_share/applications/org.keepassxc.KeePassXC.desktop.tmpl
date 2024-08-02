@@ -36,7 +36,11 @@ Comment=Community-driven port of the Windows application “KeePass Password Saf
 Comment[da]=Fællesskabsdrevet port af Windows-programmet “KeePass Password Safe”
 Comment[et]=Kogukonna arendatav port Windowsi programmist KeePass Password Safe
 Comment[ru]=Разработанный сообществом порт Windows-приложения KeePass Password Safe
-Exec=sh -c 'QT_SCREEN_SCALE_FACTORS="DP-2=1.333333;eDP-1=1.916667;DP-3=2" keepassxc %f'
+Exec=sh -c 'QT_SCREEN_SCALE_FACTORS="
+{{- range $monitor := index . .chezmoi.hostname "hyprland" "monitors" -}}
+{{ print $monitor.name "=" (regexFindAll "([\\w\\d@\\-.]+)+" $monitor.modeline 3 | last) ";" }}
+{{- end -}}
+" keepassxc %f'
 TryExec=keepassxc
 Icon=keepassxc
 StartupWMClass=keepassxc

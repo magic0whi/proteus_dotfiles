@@ -46,14 +46,13 @@ tscale=oversample
 #log-file="~~desktop/mpv.log"
 
 # Enable color correction
-{{- if index . .chezmoi.hostname "mpv" "iccProfile" }}
+{{ if index . .chezmoi.hostname "mpv" "iccProfile" -}}
 icc-profile=/home/proteus/sync-work/TPLCD_8AAE_AdobeRGB.icm
 # Default: 64x64x64. Startup will slightly slow, increases RAM usage ~500MiB
 icc-3dlut-size=256x256x256
-{{- else }}
+{{ else -}}
 icc-profile-auto
-{{- end }}
-
+{{ end }}
 # 在mpv.conf所在目录下建一个 shaders_cache 空文件夹，以存放编译好的GPU shaders，加速启动。
 gpu-shader-cache-dir="~~/shaders_cache"
 

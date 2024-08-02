@@ -46,7 +46,7 @@ wallpaper = '/home/proteus/Pictures/wallpaper-3.jpg'
 wallpaperMode = 'contain'
 
 [[PROTEUSLAPTOP.hyprland.monitors]]
-name = 'DP-3'
+name = 'DP-1'
 modeline = 'preferred, auto-right, 2, transform, 1, bitdepth, 10'
 workspace = [10]
 wallpaper = '/home/proteus/Pictures/wallpaper-3.jpg'

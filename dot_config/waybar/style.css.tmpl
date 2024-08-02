@@ -22,23 +22,23 @@ window#waybar {
   font-family: Material Design Icons, Roboto, Helvetica, Arial, sans-serif;
   font-size: {{ index . .chezmoi.hostname "waybar" "windowFontSize" }};
 }
-{{- if eq .chezmoi.hostname "PROTEUSLAPTOP" }}
-
-/* HiDPI adjustments for DP-3 START */
-window#waybar.DP-3 {
+{{ if eq .chezmoi.hostname "PROTEUSLAPTOP" -}}
+{{ range $monitor := index . .chezmoi.hostname "hyprland" "monitors" -}}
+{{ if contains "auto-right" $monitor.modeline }}
+/* HiDPI adjustments START */
+window#waybar.{{ $monitor.name }} {
   font-size: 20px;
 }
 
-window#waybar.DP-3 widget:first-child .module {
+window#waybar.{{ $monitor.name }} widget:first-child .module {
   margin-left: 0;
 }
 
-window#waybar.DP-3 widget:last-child .module {
+window#waybar.{{ $monitor.name }} widget:last-child .module {
   margin-right: 0;
 }
-/* HiDPI adjustments for DP-3 END */
-{{- end }}
-
+/* HiDPI adjustments END */
+{{ end }}{{ end }}{{ end }}
 tooltip {
   background: @gruvbox-bg;
   border: 2px solid @gruvbox-gray;

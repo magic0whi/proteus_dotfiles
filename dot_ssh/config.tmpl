@@ -8,11 +8,10 @@ Host *
     ControlPath /tmp/ssh-%r@%h:%p
     # Increase the valid time of a connection
     ControlPersist 30m
-{{- if index . .chezmoi.hostname "sshKeyPath" }}
+{{ if index . .chezmoi.hostname "sshKeyPath" -}}
 Host github.com hf.co
     User git
     IdentityFile {{ index . .chezmoi.hostname "sshKeyPath" }}
-
 Host proteusdesktop 192.168.15.11 proteuslaptop proteusnotebook
     IdentityFile {{ index . .chezmoi.hostname "sshKeyPath" }}
 {{- end -}}

@@ -2,14 +2,12 @@
 # MONITORS
 # See https://wiki.hyprland.org/Configuring/Monitors/
 # ls /sys/class/drm/card0-*
-{{- range $monitor := index . .chezmoi.hostname "hyprland" "monitors" }}
+{{ range $monitor := index . .chezmoi.hostname "hyprland" "monitors" -}}
 ${{ $monitor.name }} = {{ $monitor.modeline }}
 monitor = {{ $monitor.name }}, ${{ $monitor.name }}
-{{- range $workspace := $monitor.workspace }}
+{{ range $workspace := $monitor.workspace -}}
 workspace = {{ $workspace }}, monitor:{{ $monitor.name }}
-{{- end }}
-{{- end }}
-
+{{ end }}{{ end }}
 # MY PROGRAMS
 $terminal = systemd-run --user --scope alacritty
 $fileManager = systemd-run --user --scope nautilus
@@ -175,15 +173,14 @@ bindl =, XF86AudioPlay, exec, playerctl --all-players play-pause
 bindl =, XF86AudioNext, exec, playerctl --all-players next
 
 bind = , Print, exec, grim -g "$(slurp -d)" - | wl-copy
-{{ range $monitor := index . .chezmoi.hostname "hyprland" "monitors" }}
-{{- if hasKey $monitor "dockSwitch" }}
+
+{{ range $monitor := index . .chezmoi.hostname "hyprland" "monitors" -}}
+{{ if hasKey $monitor "dockSwitch" -}}
 # Dock switch for {{ $monitor.name }}
 bindl = , switch:{{ $monitor.dockSwitch }}, exec, loginctl lock-session
 bindl = , switch:on:{{ $monitor.dockSwitch }}, exec, [ $(hyprctl monitors -j | jq '.[].name' | wc -w) -ne 1 ] && hyprctl keyword monitor "{{ $monitor.name }}, disable"
 bindl= , switch:off:{{ $monitor.dockSwitch }}, exec, hyprctl keyword monitor "{{ $monitor.name }}, ${{ $monitor.name }}"
-{{- end }}
-{{- end }}
-
+{{ end }}{{ end }}
 # WINDOWS AND WORKSPACES
 # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
 windowrulev2 = suppressevent maximize, class:.* # You'll probably like this.

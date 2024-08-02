@@ -1,9 +1,7 @@
 {{ if lookPath "hyprpaper" -}}
 # https://wiki.hyprland.org/Hypr-Ecosystem/hyprpaper/
-{{- range $monitor := index . .chezmoi.hostname "hyprland" "monitors" }}
-{{- if hasKey $monitor "wallpaper" }}
+{{ range $monitor := index . .chezmoi.hostname "hyprland" "monitors" -}}
+{{ if hasKey $monitor "wallpaper" -}}
 preload = {{ $monitor.wallpaper }}
 wallpaper = {{ $monitor.name }}, {{ printf "%s:%s" $monitor.wallpaperMode $monitor.wallpaper }}
-{{- end }}
-{{- end }}
-{{- end -}}
+{{ end }}{{ end }}{{ end -}}

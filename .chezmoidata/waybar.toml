@@ -8,6 +8,7 @@ waybar.windowRewrite = '''
 "class<com.obsproject.Studio>": "&#xf0210;", // fan
 "class<org.gnome.Nautilus>": "&#xf024b;", // folder
 "class<firefox>": "&#xf0239;", // firefox
+"class<gamescope>": "&#xf0297;", // gamepad-variant
 "class<hyprland-share-picker>": "&#xf0496;", // share
 "class<Minecraft|modrinth-app>": "&#xf0373;", // minecraft
 "class<mpv>": "&#xf040c;", // play-circle

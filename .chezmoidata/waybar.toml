@@ -16,8 +16,8 @@ waybar.windowRewrite = '''
 "class<org.inkscape.Inkscape>": "&#xf02f5;", // image-filter-hdr
 "class<org.pwmt.zathura>": "&#xf0f6d;", // music-accidental-sharp
 "class<org.telegram.desktop>": "&#xf048a;", // send
-"class<steam>": "&#xf04d3;", // steam
-"class<imv|(ueberzugpp_[a-z0-9]{10})>": "&#xf02e9;", // image
+"class<steam|SDL Application>": "&#xf04d3;", // steam
+"class<imv>": "&#xf02e9;", // image
 "class<waybar>": "&#xf00e4;" // bug'''
 waybar.privacyConfig = '''
 "icon-spacing": 4,

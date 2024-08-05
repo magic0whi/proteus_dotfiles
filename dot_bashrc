@@ -166,6 +166,7 @@ if [ "$SHELL" = "/usr/bin/bash" ]; then
 fi
 
 export EDITOR=helix
+export CC=clang CXX=clang++
 
 # Using ripgrep in fzf
 if type rg &> /dev/null; then

@@ -42,8 +42,8 @@ wallpaperMode = 'contain'
 name = 'DP-2'
 modeline = '3440x1440@144, auto-left, 1.333333, bitdepth, 10'
 workspace = [6, 7, 8, 9]
-wallpaper = '/home/proteus/Pictures/wallpaper-3.jpg'
-wallpaperMode = 'contain'
+wallpaper = '/home/proteus/Pictures/plainwhite.jpg'
+wallpaperMode = 'fill'
 
 [[PROTEUSLAPTOP.hyprland.monitors]]
 name = 'DP-1'

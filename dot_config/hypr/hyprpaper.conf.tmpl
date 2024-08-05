@@ -3,5 +3,5 @@
 {{ range $monitor := index . .chezmoi.hostname "hyprland" "monitors" -}}
 {{ if hasKey $monitor "wallpaper" -}}
 preload = {{ $monitor.wallpaper }}
-wallpaper = {{ $monitor.name }}, {{ printf "%s:%s" $monitor.wallpaperMode $monitor.wallpaper }}
+wallpaper = {{ $monitor.name }}, {{ if eq $monitor.wallpaperMode "fill" }}{{ $monitor.wallpaper }}{{ else }}{{ printf "%s:%s" $monitor.wallpaperMode $monitor.wallpaper }}{{ end }}
 {{ end }}{{ end }}{{ end -}}

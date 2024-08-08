@@ -7,3 +7,7 @@ executable = 'latexmk'
 args = ['-pdfxe', '-interaction=nonstopmode', '-synctex=1', '%f']
 onSave = true
 forwardSearchAfter = true
+
+[[language]]
+name = "cpp"
+auto-format = true

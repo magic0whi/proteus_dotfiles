@@ -4,6 +4,9 @@ theme = 'gruvbox'
 line-number = 'relative'
 soft-wrap.enable = true
 
+[editor.cursor-shape]
+insert = "bar"
+
 [editor.whitespace.render]
 space = "none"
 tab = "all"

@@ -35,22 +35,22 @@ name = 'eDP-1'
 modeline = 'preferred, 0x0, 1.916667, bitdepth, 10'
 workspace = [1, 2, 3, 4, 5]
 dockSwitch = 'Lid Switch'
-# wallpaper = '/home/proteus/Pictures/wallpaper-3.jpg'
-# wallpaperMode = 'contain'
+wallpaper = '/home/proteus/Pictures/astromap_en.png'
+wallpaperMode = 'contain'
 
 [[PROTEUSLAPTOP.hyprland.monitors]]
 name = 'DP-2'
 modeline = '3440x1440@144, auto-left, 1.333333, bitdepth, 10'
 workspace = [6, 7, 8, 9]
-# wallpaper = '/home/proteus/Pictures/wallpaper-3.jpg'
-# wallpaperMode = 'fill'
+wallpaper = '/home/proteus/Pictures/astromap_en.png'
+wallpaperMode = 'fill'
 
 [[PROTEUSLAPTOP.hyprland.monitors]]
 name = 'DP-1'
 modeline = 'preferred, auto-right, 2, transform, 1, bitdepth, 10'
 workspace = [10]
-# wallpaper = '/home/proteus/Pictures/wallpaper-3.jpg'
-# wallpaperMode = 'contain'
+wallpaper = '/home/proteus/Pictures/astromap_en.png'
+wallpaperMode = 'contain'
 
 [[PROTEUSLAPTOP.pipewire.sources]]
 # Name of pulse device (pactl)

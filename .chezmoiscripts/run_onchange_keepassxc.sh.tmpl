@@ -1,5 +1,5 @@
 {{ if lookPath "keepassxc-cli" -}}
-{{- $path := index . .chezmoi.hostname "keepassDBPath" -}}
+{{- $path := .COMMON.keepassDBPath -}}
 #!/bin/sh
 set -eufo pipefail
 # ProteusPassDB hash: {{ include $path | sha256sum }}

@@ -1,5 +1,7 @@
 [COMMON]
 gpgRecipient = 'B58240E2EBC371C7F99D0DAAED347D6CF8E43AF9'
+sshKeyPath = '/mnt/overlay/keys/private/proteus_ed25519.key'
+keepassDBPath = '/mnt/overlay/keys/private/ProteusPassDB.kdbx'
 
 [COMMON.GTK4]
 'org.gnome.desktop.interface'.color-scheme = 'prefer-dark'
@@ -11,8 +13,6 @@ gpgRecipient = 'B58240E2EBC371C7F99D0DAAED347D6CF8E43AF9'
 
 [PROTEUSLAPTOP]
 shellColor = 'BGreen'
-sshKeyPath = '/home/proteus/sync-work/3keys/private/proteus_ed25519.key'
-keepassDBPath = '/home/proteus/sync-work/3keys/private/ProteusPassDB.kdbx'
 hyprland.dpiScale = 1.916667
 hyprland.keyboardBacklightDevice = 'platform::kbd_backlight'
 mpv.vulkan-device = 'AMD Radeon 780M (RADV GFX1103_R1)'
@@ -92,7 +92,6 @@ hyprland.keyboardBacklightDevice = 'usb-3-11-3-1::kbd_backlight'
 mpv.vulkan-device = 'Intel(R) UHD Graphics (TGL GT1)'
 rofi.dpi = 128
 rofi.width = '1500px'
-sshKeyPath = '/home/proteus/sync-work/3keys/private/proteus_ed25519.key'
 waybar.marginTop = 6
 waybar.marginLeftRight = 10
 waybar.moduleMarginLeftRight = '2px'
@@ -163,4 +162,3 @@ path = 'dmix:NVidia,9'
 
 [PROTEUSDESKTOP]
 shellColor = 'BBlue'
-sshKeyPath = '/mnt/storage3/sync-work/3keys/private/proteus_ed25519.key'

@@ -1,9 +1,28 @@
 {{ if lookPath "alacritty" -}}
+[colors.primary] # Gruvbox Material Medium Dark)
+background = '#282828' # bg0
+foreground = '#d4be98' # fg0
+
+[colors.normal]
+black   = '#3c3836' # bg_current_word
+red     = '#ea6962' # red
+green   = '#a9b665' # green
+yellow  = '#d8a657' # yellow
+blue    = '#7daea3' # blue
+magenta = '#d3869b' # purple
+cyan    = '#89b482' # aqua
+white   = '#d4be98' # fg0
+
+[colors.bright] # Same as normal colors
+black   = '#3c3836'
+red     = '#ea6962'
+green   = '#a9b665'
+yellow  = '#d8a657'
+blue    = '#7daea3'
+magenta = '#d3869b'
+cyan    = '#89b482'
+white   = '#d4be98'
 {{ if eq .chezmoi.hostname "PROTEUSLAPTOP" -}}
 [font]
 size = 10.0
-
-{{ end -}}
-[window]
-opacity = 0.8
-{{- end -}}
+{{ end -}}{{- end -}}

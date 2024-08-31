@@ -42,8 +42,8 @@
     "idle_inhibitor": {
       "format": "{icon}",
       "format-icons": {
-        "activated": "&#xf06e8;", // lightbulb-on
-        "deactivated": "&#xf1800;" // lightbulb-auto
+        "activated": "&#xf1802;", // nf-md-lightbulb_variant
+        "deactivated": "&#xf0336;" // nf-md-lightbulb_outline
       }
     },
     "tray": {
@@ -57,7 +57,7 @@
       "tooltip-format": "<big>{:%y %b}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "cpu": {
-      "format": "{usage}% &#xf0ee0;", // cpu-64-bit
+      "format": "{usage}% &#xf0ee0;", // cpu_64_bit
       "tooltip": false
     },
     "memory": {
@@ -71,12 +71,12 @@
       "hwmon-path": "{{ index . .chezmoi.hostname "waybar" "tempHwmonPath" }}",
 {{- end }}
       "critical-threshold": 80,
-      "format-critical": "{temperatureC}&#xb0;C &#xf0e01;", // thermometer-alert
+      "format-critical": "{temperatureC}&#xb0;C &#xf0e01;", // thermometer_alert
       "format": "{temperatureC}&#xb0;C {icon}",
       "format-icons": [
-        "&#xf10c3;", // thermometer-low
+        "&#xf10c3;", // thermometer_low
         "&#xf050f;", // thermometer
-        "&#xf10c2;" // thermometer-high
+        "&#xf10c2;" // thermometer_high
       ],
       "tooltip": false
     },
@@ -87,11 +87,13 @@
       //"smooth-scrolling-threshold": 3,
       "format": "{percent}% {icon}",
       "format-icons": [
-        "&#xf0f64;", // moon-new
-        "&#xf0f67;", // moon-waxing-crescent
-        "&#xf0f61;", // moon-first-quarter
-        "&#xf0f68;", // moon-waxing-gibbous
-        "&#xf0f62;" // moon-full
+        "&#xf00da;", // brightness_1
+        "&#xf00db;", // brightness_2
+        "&#xf00dc;", // brightness_3
+        "&#xf00de;", // brightness_5
+        "&#xf00dd;", // brightness_4
+        "&#xf00df;", // brightness_6
+        "&#xf00e0;" // brightness_5
       ],
       "tooltip": false
     },
@@ -100,8 +102,8 @@
       "capslock": true,
       "format": "{name} {icon}",
       "format-icons": {
-        "locked": "&#xf0632;", // apple-keyboard-caps
-        "unlocked": "&#xf030e;" // keyboard-caps
+        "locked": "&#xf0a9b;", // caps_lock
+        "unlocked": "&#xf030e;" // keyboard_caps
       }
     },
     "battery": {
@@ -112,22 +114,22 @@
       },
       "format": "{capacity}% {icon}",
       "format-full": "{capacity}% {icon}",
-      "format-charging": "{capacity}% &#xf0084;", // battery-charging
-      "format-plugged": "{capacity}% &#xf1c3b;", // power-plug-battery
+      "format-charging": "{capacity}% &#xf0084;", // battery_charging
+      "format-plugged": "{capacity}% &#xf1834;", // battery_sync
       "format-alt": "{time} {power}W {icon}",
       // "format-good": "", // an empty format will hide the module
       // "format-full": "",
       "format-icons": [
-        "&#xf10cd;", // battery-alert-variant-outline
-        "&#xf007a;", // battery-10
-        "&#xf007b;", // battery-20
-        "&#xf007c;", // battery-30
-        "&#xf007d;", // battery-40
-        "&#xf007e;", // battery-50
-        "&#xf007f;", // battery-60
-        "&#xf0080;", // battery-70
-        "&#xf0081;", // battery-80
-        "&#xf0082;", // battery-90
+        "&#xf10cd;", // battery_alert_variant_outline
+        "&#xf007a;", // battery_10
+        "&#xf007b;", // battery_20
+        "&#xf007c;", // battery_30
+        "&#xf007d;", // battery_40
+        "&#xf007e;", // battery_50
+        "&#xf007f;", // battery_60
+        "&#xf0080;", // battery_70
+        "&#xf0081;", // battery_80
+        "&#xf0082;", // battery_90
         "&#xf0079;" // battery
       ]
     },
@@ -137,36 +139,36 @@
       "tooltip": true,
       "format-icons": {
         "default": "&#xf0210;", // fan
-        "performance": "&#xf1807;", // fire-circle
-        "balanced": "&#xf1c03;", // bank-circle
-        "power-saver": "&#xf1905;" // leaf-circle
+        "performance": "&#xf1807;", // fire_circle
+        "balanced": "&#xf1a04;", // percent_circle
+        "power-saver": "&#xf1905;" // leaf_circle
       }
     },
     "network": {
       "interface": "{{ index . .chezmoi.hostname "waybar" "netIO" }}",
       "format-wifi": "{icon}",
       "format-ethernet": "{ipaddr}/{cidr} &#xf0200;", // ethernet
-      "format-linked": "{ifname} (no ip) &#xf0318;", // lan-connect
-      "format-disconnected": "disconnected &#xf0319;", // lan-disconnect
+      "format-linked": "{ifname} (no ip) &#xf0318;", // lan_connect
+      "format-disconnected": "disconnected &#xf0319;", // lan_disconnect
       "format-alt": "{ifname}: {ipaddr}/{cidr}",
       "tooltip-format": "{ifname} via {gwaddr} &#xf11e2;", // router
-      "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ifname} via {gwaddr} &#xf11e2;",
+      "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ifname} via {gwaddr} &#xf11e2;", // router
       "format-icons": [
-        "&#xf092f;", // wifi-strength-outline
-        "&#xf091f;", // wifi-strength-1
-        "&#xf0922;", // wifi-strength-2
-        "&#xf0925;", // wifi-strength-3
-        "&#xf0928;" // wifi-strength-4
+        "&#xf092f;", // wifi_strength_outline
+        "&#xf091f;", // wifi_strength_1
+        "&#xf0922;", // wifi_strength_2
+        "&#xf0925;", // wifi_strength_3
+        "&#xf0928;" // wifi_strength_4
       ]
     },
     "pulseaudio": {
       // "scroll-step": 1, // %, can be a float
       "format": "{volume}% {icon} {format_source}",
-      "format-muted": "&#xf0581; {format_source}", // volume-off
+      "format-muted": "&#xf0581; {format_source}", // volume_off
       "format-bluetooth": "{volume}% {icon}&#xf00af; {format_source}", // bluetooth
-      "format-bluetooth-muted": "&#xf0581;{icon}&#xf00af; {format_source}", // volume-off, bluetooth
+      "format-bluetooth-muted": "&#xf0581;{icon}&#xf00af; {format_source}", // volume_off, bluetooth
       "format-source": "{volume}% &#xf036c;", // microphone
-      "format-source-muted": "&#xf036d;", // microphone-off
+      "format-source-muted": "&#xf036d;", // microphone_off
       "format-icons": {
         "headphone": "&#xf02cb;", // headphones
         "hands-free": "&#xf184f;", // earbuds
@@ -175,9 +177,9 @@
         "portable": "&#xf011c;", // cellphone
         "car": "&#xf010b;", // car
         "default": [
-          "&#xf057f;", // volume-low
-          "&#xf0580;", // volume-medium
-          "&#xf057e;" // volume-high
+          "&#xf057f;", // volume_low
+          "&#xf0580;", // volume_medium
+          "&#xf057e;" // volume_high
         ]
       },
       "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
@@ -212,21 +214,21 @@
     "mpd": {
       "title-len": 10,
       "format": "{stateIcon}{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) &#xf075a;", // music
-      "format-disconnected": "Disconnected &#xf0319;", // lan-disconnect
-      "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped &#xf075b;", // music-off
+      "format-disconnected": "Disconnected &#xf0319;", // lan_disconnect
+      "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped &#xf075b;", // music_off
       "interval": 10,
       "consume-icons": {
-        "on": "&#xf0190;" // content-cut
+        "on": "&#xf0190;" // content_cut
       },
       "random-icons": {
-        "off": "&#xf049e;", // shuffle-disabled
+        "off": "&#xf049e;", // shuffle_disabled
         "on": "&#xf049d;" // shuffle
       },
       "repeat-icons": {
         "on": "&#xf0456;" // repeat
       },
       "single-icons": {
-        "on": "&#xf0458;" // repeat-once
+        "on": "&#xf0458;" // repeat_once
       },
       "state-icons": {
         "paused": "&#xf03e4;", // pause

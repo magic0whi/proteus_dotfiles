@@ -16,6 +16,7 @@ waybar.windowRewrite = '''
 "class<org.inkscape.Inkscape>": "&#xf33b;", // linux-inkscape
 "class<org.pwmt.zathura>": "&#xf292;", // hashtag
 "class<org.telegram.desktop>": "&#xf2c6;", // telegram
+"class<python3>": "&#xf0320;", // nf-md-language_python
 "class<steam|SDL Application>": "&#xf04d3;", // steam
 "class<imv>": "&#xf02e9;", // image
 "class<waybar>": "&#xebdc;" // debug_all'''

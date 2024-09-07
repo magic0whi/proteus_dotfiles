@@ -7,6 +7,8 @@ precmd() { print "" }
 
 zstyle ':completion:*' menu select
 zstyle ':completion::complete:*' gain-privileges 1
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 
 # Zsh Shell coloring start
 # Reset
@@ -152,6 +154,7 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=60'
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source <(carapace _carapace)
 
 setopt extendedglob
 

@@ -1,0 +1,19 @@
+{
+    "codeCellConfig": {
+        "indentUnit": "2"
+    },
+    "defaultCell": "code",
+    "markdownCellConfig": {
+        "lineNumbers": false,
+        "matchBrackets": false
+    },
+    "rawCellConfig": {
+        "lineNumbers": false,
+        "matchBrackets": false
+    },
+    "scrollPastEnd": true,
+    "overscanCount": 1,
+    "maxNumberOutputs": 50,
+    "showEditorForReadOnlyMarkdown": true,
+    "showHiddenCellsButton": true
+}

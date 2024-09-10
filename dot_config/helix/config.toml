@@ -1,18 +1,28 @@
 theme = 'gruvbox'
 
 [editor]
+bufferline = "multiple"
+color-modes = true
 line-number = 'relative'
+rulers = [80, 120]
 soft-wrap.enable = true
+true-color = true
 
 [editor.cursor-shape]
 insert = "bar"
+
+[editor.file-picker]
+hidden = false
+
+[editor.indent-guides]
+render = true
 
 [editor.statusline]
 left = ["mode", "spinner", "file-name"]
 right = ["diagnostics", "version-control", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
 
 [editor.whitespace.render]
-space = "none"
+space = "all"
 tab = "all"
 nbsp = "all"
 nnbsp = "all"

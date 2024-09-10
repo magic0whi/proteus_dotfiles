@@ -7,6 +7,10 @@ soft-wrap.enable = true
 [editor.cursor-shape]
 insert = "bar"
 
+[editor.statusline]
+left = ["mode", "spinner", "file-name"]
+right = ["diagnostics", "version-control", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+
 [editor.whitespace.render]
 space = "none"
 tab = "all"

@@ -4,4 +4,4 @@
 set -eufo pipefail
 # ProteusPassDB hash: {{ include $path | sha256sum }}
 gpg -a --batch --yes -r {{ .chezmoi.config.gpg.recipient }} -o {{ print .chezmoi.sourceDir "/encrypted_" (osBase $path) ".asc" }} -e {{ $path }}
-{{- end -}}
+{{ end -}}

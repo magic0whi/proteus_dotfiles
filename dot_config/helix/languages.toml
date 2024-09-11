@@ -4,10 +4,14 @@ auto-format = true
 
 [[language]]
 name = "markdown"
-language-servers = [{ name = "ltex" }]
+language-servers = [{name = "ltex"}, "marksman"]
 
 [language-server.ltex]
 command = "ltex-ls"
+
+[language-server.ltex.config]
+ltex.language = "en-US"
+ltex.dictionary = { "en-US" = ["Gamescope", "MangoHud", "OpenLDAP", "Libvirt", "Coreutils", "Findutils", "nohup", "pathname", "Globbing", "globbing", "s2idle", "ACPI", "subpath", "endnode", "endnodes", "Kerning", "Filesystem","filesystem", "inode", "Sed", "Ripgrep", "ss", "dd", "fifo", "keyfile", "HUP", "Zsh", "Enums", "Enum", "enums", "enum", "vtable", "CRTP", "SFINAE", "Variadic", "TODO", "Coroutine", "coroutine", "Coroutines", "coroutines", "Const", "const", "non-const", "const-ness", "Lvalues", "Lvalue", "lvalue", "lvalues", "Rvalues", "rvalues", "rvalue", "deduplicate", "Cherno", "Clangd", "SymPy"] }
 
 [language-server.texlab.config.texlab]
 chktex.onOpenAndSave = true

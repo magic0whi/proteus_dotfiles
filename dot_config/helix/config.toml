@@ -30,3 +30,6 @@ newline = "none"
 
 [keys.insert]
 "C-c" = "normal_mode"
+
+[keys.normal]
+"F5" = [":config-reload", ":lsp-restart"]

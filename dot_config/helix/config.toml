@@ -18,7 +18,7 @@ hidden = false
 render = true
 
 [editor.statusline]
-left = ["mode", "spinner", "file-name"]
+left = ["mode", "spinner", "file-name", "read-only-indicator", "file-modification-indicator"]
 right = ["diagnostics", "version-control", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
 
 [editor.whitespace.render]

@@ -8,8 +8,8 @@ keepassDBPath = '/mnt/overlay/keys/private/ProteusPassDB.kdbx'
 
 [COMMON.defaults]
 'inode/directory' = 'org.gnome.Nautilus.desktop'
-'image/png' = 'imv-dir.desktop'
-'image/jpeg' = 'imv-dir.desktop'
+'image/png' = 'org.gnome.Loupe.desktop'
+'image/jpeg' = 'org.gnome.Loupe.desktop'
 
 [PROTEUSLAPTOP]
 shellColor = 'BGreen'

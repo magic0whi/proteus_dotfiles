@@ -1,0 +1,27 @@
+[als.iio]
+path = "/sys/bus/iio/devices"
+thresholds = { 0 = "night", 20 = "dark", 80 = "dim", 250 = "normal", 500 = "bright", 800 = "outdoors" }
+
+# [als.time]
+# thresholds = { 0 = "night", 7 = "dark", 9 = "dim", 11 = "normal", 13 = "bright", 16 = "normal", 18 = "dark", 20 = "night" }
+
+[[output.backlight]]
+name = 'eDP-1'
+path = '/sys/class/backlight/amdgpu_bl1'
+capturer = 'none'
+
+# [[output.ddcutil]]
+# name = 'C340SCA'
+# capturer = 'none'
+
+# [[output.ddcutil]]
+# name = 'RTK UHD HDR'
+# capturer = 'none'
+
+[[keyboard]]
+name = "keyboard-yoga"
+path = "/sys/bus/platform/devices/PNP0C09:00/VPC2004:00/leds/platform::kbd_backlight"
+
+# [[keyboard]]
+# name = "keyboard-thinkpad"
+# path = "/sys/bus/platform/devices/thinkpad_acpi/leds/tpacpi::kbd_backlight"

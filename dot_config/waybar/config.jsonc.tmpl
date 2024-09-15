@@ -192,7 +192,7 @@
 {{- if eq .chezmoi.hostname "PROTEUSLAPTOP" }}
   ,{
 {{- range $monitor := index . .chezmoi.hostname "hyprland" "monitors" }}
-{{- if contains "auto-right" $monitor.modeline }}
+{{- if contains "auto-up" $monitor.modeline }}
     "output": "{{ $monitor.name }}",
 {{- end }}
 {{- end }}
@@ -243,4 +243,4 @@
   }
 {{- end }}
 ]
-{{- end -}}
+{{ end -}}

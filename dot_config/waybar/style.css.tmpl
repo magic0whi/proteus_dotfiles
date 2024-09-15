@@ -24,7 +24,7 @@ window#waybar {
 }
 {{ if eq .chezmoi.hostname "PROTEUSLAPTOP" -}}
 {{ range $monitor := index . .chezmoi.hostname "hyprland" "monitors" -}}
-{{ if contains "auto-right" $monitor.modeline }}
+{{ if contains "auto-up" $monitor.modeline }}
 /* HiDPI adjustments START */
 window#waybar.{{ $monitor.name }} {
   font-size: 20px;

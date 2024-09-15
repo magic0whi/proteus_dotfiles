@@ -1,3 +1,4 @@
+{{ if lookPath "wluma" -}}
 [als.iio]
 path = "/sys/bus/iio/devices"
 thresholds = { 0 = "night", 20 = "dark", 80 = "dim", 250 = "normal", 500 = "bright", 800 = "outdoors" }
@@ -21,7 +22,4 @@ capturer = 'none'
 [[keyboard]]
 name = "keyboard-yoga"
 path = "/sys/bus/platform/devices/PNP0C09:00/VPC2004:00/leds/platform::kbd_backlight"
-
-# [[keyboard]]
-# name = "keyboard-thinkpad"
-# path = "/sys/bus/platform/devices/thinkpad_acpi/leds/tpacpi::kbd_backlight"
+{{ end -}}

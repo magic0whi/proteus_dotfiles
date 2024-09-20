@@ -10,6 +10,7 @@ keepassDBPath = '/mnt/overlay/keys/private/ProteusPassDB.kdbx'
 'inode/directory' = 'org.gnome.Nautilus.desktop'
 'image/png' = 'org.gnome.Loupe.desktop'
 'image/jpeg' = 'org.gnome.Loupe.desktop'
+'image/heic' = 'org.gnome.Loupe.desktop'
 
 [PROTEUSLAPTOP]
 shellColor = 'BGreen'
@@ -40,7 +41,7 @@ wallpaperMode = 'contain'
 
 [[PROTEUSLAPTOP.hyprland.monitors]]
 name = 'DP-2'
-modeline = '3440x1440@144, auto-left, 1.333333, bitdepth, 10'
+modeline = '3440x1440@120, auto-left, 1.333333, bitdepth, 10'
 workspace = [4, 5, 6, 7]
 wallpaper = '/home/proteus/Pictures/astromap_en.png'
 wallpaperMode = 'fill'

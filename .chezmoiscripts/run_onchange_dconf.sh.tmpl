@@ -9,7 +9,7 @@ if [ "$(gsettings get {{ printf "%s %s" $path $key }})" != "{{ toString $value}}
 fi
 {{- end }}{{ end }}
 
-{{- if lookPath "imv" }}
+{{- if lookPath "loupe" }}
 # Set default programs for xdg-open
 {{- range $mimeType, $program := .COMMON.defaults }}
 if [ "$(xdg-mime query default '{{ $mimeType }}')" != "{{ $program }}" ]; then

@@ -26,6 +26,7 @@ env = QT_IM_MODULES, wayland;fcitx
 env = GDK_DPI_SCALE, {{ index . .chezmoi.hostname "hyprland" "dpiScale" }}
 env = QT_ENABLE_HIGHDPI_SCALING, 1
 env = STEAM_FORCE_DESKTOPUI_SCALING, {{ index . .chezmoi.hostname "hyprland" "dpiScale" }}
+env = GSK_RENDERER, ngl
 
 # LOOK AND FEEL
 # https://wiki.hyprland.org/Configuring/Variables/#general

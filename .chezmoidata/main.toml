@@ -26,7 +26,7 @@ waybar.windowFontSize = '16px'
 waybar.tooltipFontSize = '16px'
 waybar.moduleMarginLeftRight = '2px'
 waybar.modulePadding = '0 5px'
-waybar.output = '["eDP-1", "DP-2"]'
+waybar.output = '["eDP-1", "DP-1"]'
 waybar.netIO = 'wlp1s0'
 waybar.tempHwmonPath = '/sys/class/hwmon/hwmon5/temp1_input'
 
@@ -40,14 +40,14 @@ wallpaper = '/home/proteus/Pictures/astromap_en.png'
 wallpaperMode = 'contain'
 
 [[PROTEUSLAPTOP.hyprland.monitors]]
-name = 'DP-2'
+name = 'DP-1'
 modeline = '3440x1440@120, auto-left, 1.333333, bitdepth, 10'
 workspace = [4, 5, 6, 7]
 wallpaper = '/home/proteus/Pictures/astromap_en.png'
 wallpaperMode = 'fill'
 
 [[PROTEUSLAPTOP.hyprland.monitors]]
-name = 'DP-1'
+name = 'DP-3'
 modeline = 'preferred, auto-up, 2, transform, 0, bitdepth, 10'
 workspace = [8, 9, 10]
 wallpaper = '/home/proteus/Pictures/astromap_en.png'

@@ -18,6 +18,7 @@ $clipManager = systemd-run --user --scope sh -c 'cliphist list | rofi -dmenu | c
 exec-once = systemctl --user --no-block start hyprland-session.target
 
 # ENVIRONMENT VARIABLES
+env = XDG_CURRENT_DESKTOP,hyprland
 env = XCURSOR_SIZE, 24
 env = HYPRCURSOR_SIZE, 24
 env = QT_QPA_PLATFORMTHEME, qt6ct

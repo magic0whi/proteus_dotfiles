@@ -1,13 +1,17 @@
 [[language]]
-name = "cpp"
+name = 'cpp'
 auto-format = true
 
 [[language]]
-name = "markdown"
-language-servers = [{name = "ltex"}, "marksman"]
+name = 'markdown'
+language-servers = ['marksman', 'ltex']
+
+[[language]]
+name = 'latex'
+language-servers = ['texlab', 'ltex']
 
 [language-server.ltex]
-command = "ltex-ls"
+command = 'ltex-ls'
 
 [language-server.ltex.config]
 ltex.language = "en-US"

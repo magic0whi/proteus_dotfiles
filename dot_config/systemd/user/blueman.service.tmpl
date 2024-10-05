@@ -1,12 +1,12 @@
-{{ if lookPath "fcitx5" -}}
+{{ if lookPath "blueman-applet" -}}
 [Unit]
-Description=Flexible Context-aware Input Tool with eXtension
+Description=GTK+ Bluetooth Manager
 PartOf=graphical-session.target
 After=graphical-session.target
 ConditionEnvironment=WAYLAND_DISPLAY
 
 [Service]
-ExecStart=/usr/bin/fcitx5
+ExecStart=/usr/bin/blueman-applet
 Restart=on-failure
 RestartSec=1s
 Slice=background.slice

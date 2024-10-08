@@ -3,13 +3,14 @@ waybar.windowRewrite = '''
 "class<ario>": "&#xf0386;", // music_circle
 "class<Alacritty>": "&#xf018d;", // console
 "class<Anki>": "&#xf0638;", // cards
-"class<KeePassXC>": "&#xf0bc4;", // shield_key
+"class<blueman-manager>": "&#xf293;", // nf-fa-bluetooth
 "class<blender>": "&#xf00ab;", // blender_software
 "class<com.obsproject.Studio>": "&#xf0210;", // fan
 "class<org.gnome.Nautilus>": "&#xf024b;", // folder
 "class<firefox>": "&#xf0239;", // firefox
 "class<gamescope>": "&#xf0297;", // gamepad_variant
 "class<hyprland-share-picker>": "&#xf0496;", // share
+"class<KeePassXC>": "&#xf0bc4;", // shield_key
 "class<Minecraft|modrinth-app>": "&#xf0373;", // minecraft
 "class<mpv>": "&#xf36e;", // linux-mpv
 "class<org.fcitx.fcitx5-config-qt>": "&#xf09f9;", // keyboard_settings

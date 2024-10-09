@@ -5,8 +5,9 @@ waybar.windowRewrite = '''
 "class<Anki>": "&#xf0638;", // cards
 "class<blueman-manager>": "&#xf293;", // nf-fa-bluetooth
 "class<blender>": "&#xf00ab;", // blender_software
-"class<com.obsproject.Studio>": "&#xf0210;", // fan
 "class<org.gnome.Nautilus>": "&#xf024b;", // folder
+"class<com.obsproject.Studio>": "&#xf0210;", // fan
+"class<org.remmina.Remmina>": "&#xeb39;", // nf-md-remote
 "class<firefox>": "&#xf0239;", // firefox
 "class<gamescope>": "&#xf0297;", // gamepad_variant
 "class<hyprland-share-picker>": "&#xf0496;", // share

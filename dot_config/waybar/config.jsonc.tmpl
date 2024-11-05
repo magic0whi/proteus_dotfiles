@@ -48,7 +48,7 @@
     },
     "tray": {
       "icon-size": 20,
-      "spacing": 10
+      "spacing": 6
     },
     "clock": {
       "format": "{:%H:%M:%S}",
@@ -201,6 +201,7 @@
       "mpd"
     ],
     "modules-right": [
+      "tray",
       "privacy"
     ],
     "hyprland/workspaces": {
@@ -236,6 +237,10 @@
       },
       "tooltip-format": "MPD (connected)",
       "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "tray": {
+      "icon-size": 20,
+      "spacing": 6
     },
     "privacy": {
 {{ .COMMON.waybar.privacyConfig }}

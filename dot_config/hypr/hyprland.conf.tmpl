@@ -156,7 +156,7 @@ bindm = $mainMod, mouse:272, movewindow
 bindm = $mainMod, mouse:273, resizewindow
 
 # Turn off screen
-bindl = $mainMod, Z, exec, sleep 0.4; hyprctl dispatch dpms off; loginctl lock-session
+bindl = $mainMod, Z, exec, loginctl lock-session; sleep 0.6; hyprctl dispatch dpms off
 bindl = $mainMod, X, exec, systemctl suspend # Suspend
 bind = $mainMod, C, exec, systemctl hibernate # Hibernate
 bind = $mainMod ALT, Q, exit, # Exit Hyprland

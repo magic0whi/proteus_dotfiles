@@ -9,7 +9,7 @@ Host *
     # Increase the valid time of a connection
     ControlPersist 30m
 {{ if stat .COMMON.sshKeyPath -}}
-Host github.com hf.co
+Host ssh.github.com hf.co
     User git
     IdentityFile {{ .COMMON.sshKeyPath }}
 Host proteusdesktop 192.168.15.11 proteuslaptop proteusnotebook *.tailba6c3f.ts.net

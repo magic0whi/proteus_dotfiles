@@ -51,9 +51,21 @@
       "spacing": 6
     },
     "clock": {
-      "format": "{:%H:%M:%S}",
+      "actions": {
+        "on-click-right": "tz_down",
+        "on-scroll-up": "tz_up",
+        "on-scroll-down": "tz_down",
+        "on-scroll-up": "shift_up",
+        "on-scroll-down": "shift_down"
+      },
+      "format": "{:%H:%M:%S (%Z)}",
       "format-alt": "{:%m-%d-%y}",
       "interval": 1,
+      "timezones": [
+        "Asia/Makassar",
+        "Europe/London",
+        "America/Chicago"
+      ],
       "tooltip-format": "<big>{:%y %b}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "cpu": {

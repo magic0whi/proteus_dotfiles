@@ -163,3 +163,58 @@ path = 'dmix:NVidia,9'
 
 [PROTEUSDESKTOP]
 shellColor = 'BBlue'
+hyprland.dpiScale = 1.333333
+mpv.vulkan-device = 'Intel(R) HD Graphics 4400 (HSW GT2)'
+rofi.dpi = 96
+rofi.width = '750px'
+waybar.marginTop = 6
+waybar.marginLeftRight = 4
+waybar.windowFontSize = '16px'
+waybar.tooltipFontSize = '16px'
+waybar.moduleMarginLeftRight = '2px'
+waybar.modulePadding = '0 5px'
+# waybar.output = '["eDP-1", "DP-1"]'
+waybar.netIO = 'enp2s0'
+waybar.tempThermalZone = 2
+# waybar.tempHwmonPath = '/sys/class/hwmon/hwmon5/temp1_input'
+
+[[PROTEUSDESKTOP.hyprland.monitors]]
+# 3440x1440 on the left-upper
+name = 'HDMI-A-2'
+modeline = '2560x1440@59.95, 0x0, 1.333333, bitdepth, 10'
+workspace = [1, 2, 3]
+wallpaper = '/home/proteus/Pictures/astromap_en.png'
+wallpaperMode = 'contain'
+
+[[PROTEUSDESKTOP.pipewire.sources]]
+# Name of pulse device (pactl)
+name = 'alsa-mic-alc887'
+# Description of pulse device (pactl)
+desc = 'Mic ALC887 Analog'
+# Alsa path
+path = 'hw:1,0'
+
+[[PROTEUSDESKTOP.pipewire.sources]]
+name = 'alsa-mic-alc887-alt'
+desc = 'Mic ALC287 Alt Analog'
+path = 'hw:1,2'
+
+[[PROTEUSDESKTOP.pipewire.sinks]]
+name = 'alsa-dmix-alc887'
+desc = 'PCM ALC287 Analog'
+path = 'dmix:1,0'
+
+[[PROTEUSDESKTOP.pipewire.sinks]]
+name = 'alsa-dmix-hdmi0'
+desc = 'PCM HDMI Port 0'
+path = 'dmix:0,3'
+
+[[PROTEUSDESKTOP.pipewire.sinks]]
+name = 'alsa-dmix-hdmi1'
+desc = 'PCM HDMI Port 1'
+path = 'dmix:0,7'
+
+[[PROTEUSDESKTOP.pipewire.sinks]]
+name = 'alsa-dmix-hdmi2'
+desc = 'PCM HDMI Port 2'
+path = 'dmix:0,8'

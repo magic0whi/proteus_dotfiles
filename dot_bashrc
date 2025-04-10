@@ -22,6 +22,7 @@ alias ssh="TERM=xterm-256color ssh"
 
 # -l load math lib, -q is quiet
 alias bc="bc -lq"
+alias hx="helix"
 
 # -R print the control symbol in raw, -N show line number
 export LESS="-R -N"

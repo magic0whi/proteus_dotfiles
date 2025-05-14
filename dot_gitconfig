@@ -1,0 +1,10 @@
+[user]
+	email = sudaku233@outlook.com
+	name = Proteus
+	signingKey = 73EDF7A727CC3B5F329863DBFC4881A7361DF34E
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true

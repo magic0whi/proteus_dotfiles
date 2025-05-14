@@ -1,6 +1,5 @@
 [COMMON]
-gpgRecipient = 'B58240E2EBC371C7F99D0DAAED347D6CF8E43AF9'
-sshKeyPath = '/mnt/overlay/keys/private/proteus_ed25519.key'
+gpgRecipient = '5B8B0A99BC4B161D8834947B940B76AB99D87247'
 keepassDBPath = '/mnt/overlay/keys/private/ProteusPassDB.kdbx'
 
 [COMMON.GTK4]

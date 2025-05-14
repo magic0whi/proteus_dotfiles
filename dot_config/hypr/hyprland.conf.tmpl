@@ -65,7 +65,6 @@ dwindle {
 
 # https://wiki.hyprland.org/configuring/variables/#misc
 misc {
-  mouse_move_enables_dpms = false
   key_press_enables_dpms = true
   vrr = 1
 }
@@ -175,7 +174,7 @@ bind = , Print, exec, grim -g "$(slurp -d)" - | wl-copy
 # Dock switch for {{ $monitor.name }}
 bindl = , switch:{{ $monitor.dockSwitch }}, exec, loginctl lock-session
 bindl = , switch:on:{{ $monitor.dockSwitch }}, exec, [ $(hyprctl monitors -j | jq '.[].name' | wc -w) -ne 1 ] && hyprctl keyword monitor "{{ $monitor.name }}, disable"
-bindl= , switch:off:{{ $monitor.dockSwitch }}, exec, hyprctl keyword monitor "{{ $monitor.name }}, ${{ $monitor.name }}"
+bindl= , switch:off:{{ $monitor.dockSwitch }}, exec, hyprctl keyword monitor "{{ $monitor.name }}, ${{ $monitor.modeline }}"
 {{ end }}{{ end }}
 # WINDOWS AND WORKSPACES
 # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more

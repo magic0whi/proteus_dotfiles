@@ -1,86 +1,11 @@
 #
 # ~/.bashrc
 #
+[[ $- != *i* ]] && return # If not running interactively, don't do anything
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
-# Custom alias start
-alias ls='ls --color=auto -v'
-alias ll='ls -l --color=auto -v'
-alias la='ls -la --color=auto -v'
-alias lh='ls -lah --color=auto -v'
-alias grep='grep --color=auto'
-alias ip='ip --color=auto'
-
-alias start="sudo systemctl start"
-alias stop="sudo systemctl stop"
-alias restart="sudo systemctl restart"
-alias status="sudo systemctl status"
-alias cp="cp -i --reflink=auto"
-alias ssh="TERM=xterm-256color ssh"
-
-# -l load math lib, -q is quiet
-alias bc="bc -lq"
-alias hx="helix"
-
-# -R print the control symbol in raw, -N show line number
-export LESS="-R -N"
-
-# Compress
-alias tarxz='_tarxz(){ tar -cvf - $1 | xz -z -T4 - > $2; }; _tarxz'
-alias targz="tar -Ipigz -cvf"
-
-# -2 Force tmux to assume the terminal supports 256 colours.
-alias tmux="tmux -2"
-
-alias Rcs="sudo pacman -Rcs"
-alias Ss="pacman -Ss"
-alias Si="pacman -Si"
-alias Sl="pacman -Sl"
-alias Sg="pacman -Sg"
-alias Qs="pacman -Qs"
-alias Qi="pacman -Qi"
-alias Qo="pacman -Qo"
-alias Ql="pacman -Ql"
-alias Qlp="pacman -Qlp"
-alias Qm="pacman -Qm"
-alias Qn="pacman -Qn"
-alias U="sudo pacman -U"
-alias Fo="pacman -Fo"
-alias Fl="pacman -Fl"
-alias Fy="sudo pacman -Fy"
-alias Sy="sudo pacman -Sy"
-
-# Clipboard
-alias Ci="wl-copy"
-alias Co="wl-paste"
-alias Coimg="Co --type image"
-
-# MPV
-alias mpv='mpv --player-operation-mode=pseudo-gui'
-
-cpr() {
-  rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 "$@"
-}
-mvr() {
-  rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files "$@"
-}
-
-man() {
-  # Set boldface -> red color, underline -> blue color
-  MANPAGER="less -R --use-color -Dd+r -Du+b" \
-  MANROFFOPT="-P-c" \
-  command man "$@"
-}
-
-diff() {
-  command diff --text --unified --new-file --color=auto "$@"
-}
-# Custom alias end
-
+## START Bash custom
 if [ "$SHELL" = "/bin/bash" ]; then
-# Bash Shell coloring start
+## START Bash coloring
   # Reset
   Color_Off=$'\e[m'       # Text Reset
 
@@ -153,21 +78,92 @@ if [ "$SHELL" = "/bin/bash" ]; then
   On_IPurple=$'\e[10;95m'  # Purple
   On_ICyan=$'\e[0;106m'    # Cyan
   On_IWhite=$'\e[0;107m'   # White
-# Bash Shell coloring end
+## END Bash Shell coloring
 
-  # Bash Shell Redhat+Git prompt
-  function _git_prompt() {
-    # Git prompt
+  _git_prompt() { # Bash Shell Redhat+Git prompt
     source /usr/share/git/completion/git-prompt.sh
     PS1='${BRed}\u${Color_Off}@${BGreen}\h ${BBlue}\w ${BCyan}$(__git_ps1 "(%s)")${BGreen}\$${Color_Off} '
   }
- _git_prompt
+  _git_prompt
 fi
+## END Bash custom
+
+## START shell alias
+alias ls='ls --color=auto -v'
+alias ll='ls -l --color=auto -v'
+alias la='ls -la --color=auto -v'
+alias lh='ls -lah --color=auto -v'
+alias grep='grep --color=auto'
+alias ip='ip --color=auto'
+
+alias start="sudo systemctl start"
+alias stop="sudo systemctl stop"
+alias restart="sudo systemctl restart"
+alias status="sudo systemctl status"
+alias cp="cp -i --reflink=auto"
+alias ssh="TERM=xterm-256color ssh"
+
+# -l load math lib, -q is quiet
+alias bc="bc -lq"
+alias hx="helix"
+
+# -R print the control symbol in raw, -N show line number
+export LESS="-R -N"
+
+# Compress
+alias tarxz='_tarxz(){ tar -cvf - $1 | xz -z -T4 - > $2; }; _tarxz'
+alias targz="tar -Ipigz -cvf"
+
+# -2 Force tmux to assume the terminal supports 256 colours.
+alias tmux="tmux -2"
+
+alias Rcs="sudo pacman -Rcs"
+alias Ss="pacman -Ss"
+alias Si="pacman -Si"
+alias Sl="pacman -Sl"
+alias Sg="pacman -Sg"
+alias Qs="pacman -Qs"
+alias Qi="pacman -Qi"
+alias Qo="pacman -Qo"
+alias Ql="pacman -Ql"
+alias Qlp="pacman -Qlp"
+alias Qm="pacman -Qm"
+alias Qn="pacman -Qn"
+alias U="sudo pacman -U"
+alias Fo="pacman -Fo"
+alias Fl="pacman -Fl"
+alias Fy="sudo pacman -Fy"
+alias Sy="sudo pacman -Sy"
+
+# Clipboard
+alias Ci="wl-copy"
+alias Co="wl-paste"
+alias Coimg="Co --type image"
+
+# mpv
+alias mpv='mpv --player-operation-mode=pseudo-gui'
+
+cpr() {
+  rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 "$@"
+}
+mvr() {
+  rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files "$@"
+}
+
+man() { # Set boldface -> red color, underline -> blue color
+  MANPAGER="less -R --use-color -Dd+r -Du+b" \
+  MANROFFOPT="-P-c" \
+  command man "$@"
+}
+
+diff() {
+  command diff --text --unified --new-file --color=auto "$@"
+}
+## END shell alias
 
 export EDITOR=helix
 
-# Using ripgrep in fzf
-if type rg &> /dev/null; then
+if type rg &> /dev/null; then # Using ripgrep in fzf
   export FZF_DEFAULT_COMMAND='rg --files'
   export FZF_DEFAULT_OPTS='-m'
 fi
@@ -177,3 +173,5 @@ unset SSH_AGENT_PID
 if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
   export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 fi
+
+eval "$(zoxide init ${SHELL##*/})"
